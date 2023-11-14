@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [
+        // MicroCMSの画像を対象にする
+        {
+          protocol: 'https',
+          hostname: 'images.microcms-assets.io',
+        },
+      ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
