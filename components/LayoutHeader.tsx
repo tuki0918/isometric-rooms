@@ -11,6 +11,13 @@ export const LayoutHeader: FC = () => {
             {METADATA_TITLE}
           </Link>
         </div>
+        {/* <ul className="flex space-x-4">
+          <li>
+            <Link href="/home" className="hover:text-gray-300">
+              dummy
+            </Link>
+          </li>
+        </ul> */}
       </div>
     </nav>
   );
