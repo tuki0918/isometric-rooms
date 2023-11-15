@@ -13,7 +13,7 @@ export const Top: FC = () => {
   const { data, status } = useRooms({
     limit,
     offset,
-    orders: "-created_at", // desc
+    orders: "-publishedAt", // desc
     filters: category ? `category[contains]${category}` : undefined,
   });
 

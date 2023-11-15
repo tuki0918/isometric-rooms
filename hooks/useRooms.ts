@@ -12,16 +12,14 @@ export interface ApiResponse {
 
 export interface Content {
   id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
   title: string;
   image: Image;
   category: ContentCategory[];
   is_generated_by_ai: boolean;
-  created_at: string;
-  updated_at: string;
+  publishedAt: string;
+  revisedAt: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Image {
