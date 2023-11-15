@@ -1,20 +1,28 @@
 import React, { FC } from "react";
-import { useRooms } from "../hooks/useRooms";
+import { useRooms, ContentCategory } from "../hooks/useRooms";
 import { GridRooms } from "./GridRooms";
 
-// TODO: pagination
 export const Top: FC = () => {
-  // A maximum of 9 items can be displayed.
-  const { data, status } = useRooms({
-    limit: 9,
-  });
+  const limit = 18;
+  const page = 1;
+  const offset = (page - 1) * limit;
 
-  if (data === undefined) {
-    return <p>Loading...</p>;
-  }
+  // TODO: filter by category
+  const category: ContentCategory | undefined = undefined;
+
+  const { data, status } = useRooms({
+    limit,
+    offset,
+    orders: "-created_at", // desc
+    filters: category ? `category[contains]${category}` : undefined,
+  });
 
   if (status === "error") {
     return <p>Error fetching data</p>;
+  }
+
+  if (data === undefined) {
+    return <p>Loading...</p>;
   }
 
   const { contents } = data;

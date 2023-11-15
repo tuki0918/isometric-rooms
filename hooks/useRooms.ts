@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { client, Queries } from "../utils/microCMS";
 
+export type ContentCategory = "部屋" | "店舗" | "モノ" | "自然" | "未分類";
+
 export interface ApiResponse {
   contents: Content[];
   totalCount: number;
@@ -16,7 +18,7 @@ export interface Content {
   revisedAt: string;
   title: string;
   image: Image;
-  category: string[];
+  category: ContentCategory[];
   is_generated_by_ai: boolean;
   created_at: string;
   updated_at: string;
