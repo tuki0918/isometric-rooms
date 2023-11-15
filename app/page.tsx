@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Top } from "../components/Top";
 
 const queryClient = new QueryClient();
@@ -12,10 +9,11 @@ const queryClient = new QueryClient();
 export default function Home() {
   return (
     <div>
-      <h1>Isometric Rooms</h1>
-      <QueryClientProvider client={queryClient}>
-        <Top />
-      </QueryClientProvider>
+      <div className="m-4">
+        <QueryClientProvider client={queryClient}>
+          <Top />
+        </QueryClientProvider>
+      </div>
     </div>
   );
 }
