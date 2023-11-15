@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { ApiResponse } from "../hooks/useRooms";
 
 export const RoomThumbnail: FC<{ src: string; alt: string }> = ({
   src,
@@ -33,7 +32,13 @@ export const Room: FC<{
 };
 
 export const GridRooms: FC<{
-  contents: ApiResponse["contents"];
+  contents: {
+    id: string;
+    title: string;
+    image: {
+      url: string;
+    };
+  }[];
 }> = ({ contents }) => {
   return (
     <div>
