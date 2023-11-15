@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 
 export interface RoomContent {
@@ -7,14 +7,22 @@ export interface RoomContent {
   image: {
     url: string;
   };
+  category: string[];
+  is_generated_by_ai: boolean;
+  publishedAt: string;
+  revisedAt: string;
 }
 
 export const RoomThumbnail: FC<{
   src: string;
   alt: string;
-}> = ({ src, alt }) => {
+  onClick: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ src, alt, onClick }) => {
   return (
-    <div className="w-full transition-opacity duration-300 ease-in-out cursor-pointer hover:opacity-70">
+    <div
+      className="w-full transition-opacity duration-300 ease-in-out cursor-pointer hover:opacity-70"
+      onClick={() => onClick(true)}
+    >
       <Image
         src={src}
         width={512}
@@ -29,7 +37,23 @@ export const RoomThumbnail: FC<{
 export const Room: FC<{
   content: RoomContent;
 }> = ({ content }) => {
-  const { title, image } = content;
+  const [showDetails, setShowDetails] = useState(false);
+
+  const { title, image, category, is_generated_by_ai, publishedAt, revisedAt } =
+    content;
+
+  const details = (
+    <div
+      className="absolute inset-0 bg-white p-4 text-neutral-900 opacity-90 cursor-pointer"
+      onClick={() => setShowDetails(false)}
+    >
+      <p>カテゴリ：{category}</p>
+      <p>タイトル：{title}</p>
+      <p>AI生成　：{is_generated_by_ai ? "YES" : "NO"}</p>
+      <p>投稿日　：{publishedAt}</p>
+      <p>投稿者　：{revisedAt}</p>
+    </div>
+  );
 
   const label = (
     <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
@@ -39,8 +63,8 @@ export const Room: FC<{
 
   return (
     <div className="relative">
-      <RoomThumbnail src={image.url} alt={title} />
-      {label}
+      <RoomThumbnail src={image.url} alt={title} onClick={setShowDetails} />
+      {showDetails ? details : label}
     </div>
   );
 };
