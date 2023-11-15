@@ -1,10 +1,18 @@
 import React, { FC } from "react";
 import Image from "next/image";
 
-export const RoomThumbnail: FC<{ src: string; alt: string }> = ({
-  src,
-  alt,
-}) => {
+export interface RoomContent {
+  id: string;
+  title: string;
+  image: {
+    url: string;
+  };
+}
+
+export const RoomThumbnail: FC<{
+  src: string;
+  alt: string;
+}> = ({ src, alt }) => {
   return (
     <div className="w-full transition-opacity duration-300 ease-in-out cursor-pointer hover:opacity-70">
       <Image
@@ -19,33 +27,32 @@ export const RoomThumbnail: FC<{ src: string; alt: string }> = ({
 };
 
 export const Room: FC<{
-  src: string;
-  title: string;
-}> = ({ src, title }) => {
+  content: RoomContent;
+}> = ({ content }) => {
+  const { title, image } = content;
+
+  const label = (
+    <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
+      {title}
+    </div>
+  );
+
   return (
     <div className="relative">
-      <RoomThumbnail src={src} alt={title} />
-      <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
-        {title}
-      </div>
+      <RoomThumbnail src={image.url} alt={title} />
+      {label}
     </div>
   );
 };
 
 export const GridRooms: FC<{
-  contents: {
-    id: string;
-    title: string;
-    image: {
-      url: string;
-    };
-  }[];
+  contents: RoomContent[];
 }> = ({ contents }) => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {contents.map((room) => (
-          <Room key={room.id} src={room.image.url} title={room.title} />
+        {contents.map((content) => (
+          <Room key={content.id} content={content} />
         ))}
       </div>
     </div>
