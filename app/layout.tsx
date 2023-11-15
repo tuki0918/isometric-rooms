@@ -19,9 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LayoutHeader />
-        <main>{children}</main>
-        <LayoutFooter />
+        <header className="fixed top-0 w-full z-50 bg-white shadow-md">
+          <LayoutHeader />
+        </header>
+        <main className="pt-16">{children}</main>
+        <footer>
+          <LayoutFooter />
+        </footer>
       </body>
     </html>
   );
