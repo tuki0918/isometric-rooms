@@ -1,6 +1,6 @@
 import { createClient, MicroCMSQueries } from "microcms-js-sdk";
 
-// Initialize the microCMS client
+// Initialize the microCMS client (GET only)
 export const client = createClient({
   serviceDomain:
     process.env.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN ||
