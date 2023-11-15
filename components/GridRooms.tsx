@@ -6,7 +6,7 @@ export const RoomThumbnail: FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <div className="w-full">
+    <div className="w-full transition-opacity duration-300 ease-in-out cursor-pointer hover:opacity-70">
       <Image
         src={src}
         width={512}
@@ -23,9 +23,11 @@ export const Room: FC<{
   title: string;
 }> = ({ src, title }) => {
   return (
-    <div>
+    <div className="relative">
       <RoomThumbnail src={src} alt={title} />
-      <p>{title}</p>
+      <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
+        {title}
+      </div>
     </div>
   );
 };
