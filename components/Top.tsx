@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, useCallback } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useRooms, ContentCategory } from "../hooks/useRooms";
+import { useInfiniteRooms, ContentCategory } from "../hooks/useRooms";
 import { GridRooms, GridSkeletonRooms } from "./GridRooms";
 
 const FILTER_ALL_CATEGORIES = "すべて";
@@ -32,16 +32,11 @@ const CategoryButton: FC<{
   </button>
 );
 
-// TODO: pagination
 export const Top: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams()!;
   const search = searchParams.get("category");
-
-  const limit = 18;
-  const page = 1;
-  const offset = (page - 1) * limit;
 
   // Set the initial category based on searchParams
   const initialCategory = search || FILTER_ALL_CATEGORIES;
@@ -70,9 +65,15 @@ export const Top: FC = () => {
       ? `category[contains]${selectedCategory}`
       : undefined;
 
-  const { data, status } = useRooms({
-    limit,
-    offset,
+  const {
+    data,
+    // error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteRooms({
+    limit: 18,
     orders: "-publishedAt", // desc
     filters,
   });
@@ -89,7 +90,7 @@ export const Top: FC = () => {
     data === undefined ? (
       <GridSkeletonRooms />
     ) : (
-      <GridRooms contents={data.contents} />
+      <GridRooms contents={data.pages.map((page) => page.contents).flat()} />
     );
 
   return (
@@ -104,7 +105,24 @@ export const Top: FC = () => {
           />
         ))}
       </div>
+
       {contents}
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className={`text-xs py-2 px-4 rounded-full bg-white text-blue-500 font-semibold hover:bg-blue-500 hover:text-white`}
+          >
+            {isFetchingNextPage
+              ? "Loading more..."
+              : hasNextPage
+              ? "Load More"
+              : "Nothing more to load"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
