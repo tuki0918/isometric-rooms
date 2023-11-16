@@ -36,8 +36,9 @@ export const Top: FC = () => {
   const page = 1;
   const offset = (page - 1) * limit;
 
-  const [selectedCategory, setSelectedCategory] =
-    useState<FilterCategory>(FILTER_ALL_CATEGORIES);
+  const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(
+    FILTER_ALL_CATEGORIES
+  );
   const filters =
     selectedCategory !== FILTER_ALL_CATEGORIES
       ? `category[contains]${selectedCategory}`
@@ -50,14 +51,19 @@ export const Top: FC = () => {
     filters,
   });
 
+  // TODO: error handling
   if (status === "error") return <p>Error fetching data</p>;
-  if (data === undefined) return <GridSkeletonRooms />;
 
   const handleSelectCategory = (category: FilterCategory) => () => {
     setSelectedCategory(category);
   };
 
-  const { contents } = data;
+  const contents =
+    data === undefined ? (
+      <GridSkeletonRooms />
+    ) : (
+      <GridRooms contents={data.contents} />
+    );
 
   return (
     <div>
@@ -71,7 +77,7 @@ export const Top: FC = () => {
           />
         ))}
       </div>
-      <GridRooms contents={contents} />
+      {contents}
     </div>
   );
 };
