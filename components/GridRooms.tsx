@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 
 export interface RoomContent {
@@ -14,7 +14,7 @@ export const RoomThumbnail: FC<{
   alt: string;
 }> = ({ src, alt }) => {
   return (
-    <div className="w-full transition-opacity duration-300 ease-in-out cursor-pointer hover:opacity-70">
+    <div className="w-full transition-opacity duration-300 ease-in-out hover:opacity-50">
       <Image
         src={src}
         width={512}
@@ -26,10 +26,32 @@ export const RoomThumbnail: FC<{
   );
 };
 
+const DownloadButton: FC<{
+  src: string;
+}> = ({ src }) => {
+  return (
+    <a
+      href={src}
+      className="text-white text-lg font-bold py-2 px-4 rounded inline-flex items-center border-2 rounded hover:opacity-70"
+      download
+    >
+      <svg
+        className="fill-current w-4 h-4 mr-2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+      >
+        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+      </svg>
+      <span>Download</span>
+    </a>
+  );
+};
+
 export const Room: FC<{
   content: RoomContent;
 }> = ({ content }) => {
   const { title, image } = content;
+  const [hover, setHover] = useState(false);
 
   const label = (
     <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
@@ -38,8 +60,19 @@ export const Room: FC<{
   );
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
       <RoomThumbnail src={image.url} alt={title} />
+      {hover && (
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="flex justify-center items-center">
+            <DownloadButton src={image.url} />
+          </div>
+        </div>
+      )}
       {label}
     </div>
   );
