@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Link from "next/link";
 
+// TODO: Logo
 export const METADATA_TITLE = "Isometric Rooms";
 export const LayoutHeader: FC = () => {
   return (

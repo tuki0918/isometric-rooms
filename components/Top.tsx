@@ -32,6 +32,7 @@ const CategoryButton: FC<{
   </button>
 );
 
+// TODO: pagination
 export const Top: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
