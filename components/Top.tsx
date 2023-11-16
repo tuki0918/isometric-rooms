@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useRooms, ContentCategory } from "../hooks/useRooms";
-import { GridRooms } from "./GridRooms";
+import { GridRooms, GridSkeletonRooms } from "./GridRooms";
 
 export const Top: FC = () => {
   const limit = 18;
@@ -22,7 +22,7 @@ export const Top: FC = () => {
   }
 
   if (data === undefined) {
-    return <p>Loading...</p>;
+    return <GridSkeletonRooms />;
   }
 
   const { contents } = data;
