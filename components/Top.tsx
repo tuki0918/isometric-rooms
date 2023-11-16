@@ -11,7 +11,7 @@ const categories: FilterCategory[] = [
   "店舗",
   "モノ",
   "自然",
-  "未分類",
+  // "未分類",
 ];
 
 const CategoryButton: FC<{
