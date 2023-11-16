@@ -23,7 +23,7 @@ const CategoryButton: FC<{
   <button
     className={`py-2 px-4 rounded-full ${
       isSelected
-        ? "bg-blue-500 text-white font-bold "
+        ? "bg-blue-500 text-white font-bold pointer-events-none"
         : "bg-white text-blue-500 font-semibold hover:bg-blue-500 hover:text-white"
     }`}
     onClick={onSelect}
