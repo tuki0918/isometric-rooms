@@ -21,7 +21,7 @@ const CategoryButton: FC<{
 }> = ({ category, isSelected, onSelect }) => (
   // TODO: UI style
   <button
-    className={`text-sm py-2 px-4 rounded-full ${
+    className={`text-xs py-2 px-4 rounded-full ${
       isSelected
         ? "bg-blue-500 text-white font-bold pointer-events-none"
         : "bg-white text-blue-500 font-semibold hover:bg-blue-500 hover:text-white"
