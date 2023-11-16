@@ -32,7 +32,7 @@ const DownloadButton: FC<{
   return (
     <a
       href={src}
-      className="text-white text-lg font-bold py-2 px-4 rounded inline-flex items-center border-2 rounded hover:opacity-70"
+      className="text-white text-lg font-bold py-2 px-4 rounded inline-flex items-center border-4 rounded hover:border-emerald-500 hover:text-emerald-500"
       target="_blank"
     >
       <svg
