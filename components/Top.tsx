@@ -81,7 +81,7 @@ export const Top: FC = () => {
 
   const handleSelectCategory = (category: FilterCategory) => () => {
     setSelectedCategory(category);
-    router.push(pathname + "?" + createQueryString("category", category));
+    router.push(`${pathname}?${createQueryString("category", category)}`);
   };
 
   const contents =
