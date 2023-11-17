@@ -111,7 +111,7 @@ export const Top: FC = () => {
       {hasNextPage && (
         <div className="mt-8 flex justify-center">
           <button
-            onClick={() => fetchNextPage()}
+            onClick={() => void fetchNextPage()}
             disabled={isFetchingNextPage}
             className={`rounded-full bg-white px-4 py-2 text-xs font-semibold text-blue-500 hover:bg-blue-500 hover:text-white`}
           >
