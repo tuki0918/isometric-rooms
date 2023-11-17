@@ -5,8 +5,6 @@ import { Top } from "../components/Top";
 
 const queryClient = new QueryClient();
 
-// TODO: eslint
-// TODO: prettier
 // TODO: storybook
 // TODO: Client Component or Server Components
 export default function Home() {
