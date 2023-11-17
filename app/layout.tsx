@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="fixed top-0 w-full z-50 bg-white shadow-md">
+        <header className="fixed top-0 z-50 w-full bg-white shadow-md">
           <LayoutHeader />
         </header>
         <main className="pt-16">{children}</main>

@@ -1,17 +1,16 @@
 import React, { FC } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Outfit } from "next/font/google";
 const outfit = Outfit({ weight: "400", subsets: ["latin"] });
 
 export const METADATA_TITLE = "Isometric Rooms";
 export const LayoutHeader: FC = () => {
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <div className="container mx-auto flex items-center justify-between min-w-full">
-        <div className={`font-bold text-lg ${outfit.className}`}>
-          <Link href="/" className="hover:text-gray-300 flex items-center">
-            <span className="text-sm mr-1">◆</span>
+    <nav className="bg-gray-800 p-4 text-white">
+      <div className="container mx-auto flex min-w-full items-center justify-between">
+        <div className={`text-lg font-bold ${outfit.className}`}>
+          <Link href="/" className="flex items-center hover:text-gray-300">
+            <span className="mr-1 text-sm">◆</span>
             {METADATA_TITLE}
           </Link>
         </div>

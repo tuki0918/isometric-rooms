@@ -20,7 +20,7 @@ export const RoomThumbnail: FC<{
         width={512}
         height={512}
         alt={alt}
-        className="w-full h-auto"
+        className="h-auto w-full"
       />
     </div>
   );
@@ -32,11 +32,11 @@ const DownloadButton: FC<{
   return (
     <a
       href={src}
-      className="text-white text-lg font-bold py-2 px-4 rounded inline-flex items-center border-4 rounded hover:border-emerald-500 hover:text-emerald-500"
+      className="inline-flex items-center rounded rounded border-4 px-4 py-2 text-lg font-bold text-white hover:border-emerald-500 hover:text-emerald-500"
       target="_blank"
     >
       <svg
-        className="fill-current w-4 h-4 mr-2"
+        className="mr-2 h-4 w-4 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >
@@ -54,7 +54,7 @@ export const Room: FC<{
   const [hover, setHover] = useState(false);
 
   const label = (
-    <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
+    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
       {title}
     </div>
   );
@@ -67,8 +67,8 @@ export const Room: FC<{
     >
       <RoomThumbnail src={image.url} alt={title} />
       {hover && (
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="flex justify-center items-center">
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="flex items-center justify-center">
             <DownloadButton src={image.url} />
           </div>
         </div>
@@ -83,7 +83,7 @@ export const GridRooms: FC<{
 }> = ({ contents }) => {
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {contents.length === 0 ? (
           <>
             <NotFoundRoom />
@@ -100,7 +100,7 @@ export const GridRooms: FC<{
 
 export const NotFoundRoom = () => {
   const label = (
-    <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
+    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
       Not found
     </div>
   );
@@ -110,11 +110,11 @@ export const NotFoundRoom = () => {
       <div className="w-full">
         <div
           role="status"
-          className="space-y-8 md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
+          className="space-y-8 rtl:space-x-reverse md:flex md:items-center md:space-x-8 md:space-y-0"
         >
-          <div className="flex items-center justify-center w-full h-96 bg-gray-300 rounded dark:bg-gray-700">
+          <div className="flex h-96 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
             <svg
-              className="w-10 h-10 text-gray-200 dark:text-gray-600"
+              className="h-10 w-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -132,7 +132,7 @@ export const NotFoundRoom = () => {
 
 export const SkeletonRoom = () => {
   const label = (
-    <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-1 text-xs z-10">
+    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
       Loading...
     </div>
   );
@@ -142,11 +142,11 @@ export const SkeletonRoom = () => {
       <div className="w-full">
         <div
           role="status"
-          className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
+          className="animate-pulse space-y-8 rtl:space-x-reverse md:flex md:items-center md:space-x-8 md:space-y-0"
         >
-          <div className="flex items-center justify-center w-full h-96 bg-gray-300 rounded dark:bg-gray-700">
+          <div className="flex h-96 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
             <svg
-              className="w-10 h-10 text-gray-200 dark:text-gray-600"
+              className="h-10 w-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -165,7 +165,7 @@ export const SkeletonRoom = () => {
 export const GridSkeletonRooms = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <SkeletonRoom />
         <SkeletonRoom />
         <SkeletonRoom />
