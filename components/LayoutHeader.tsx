@@ -11,13 +11,7 @@ export const LayoutHeader: FC = () => {
       <div className="container mx-auto flex items-center justify-between min-w-full">
         <div className={`font-bold text-lg ${outfit.className}`}>
           <Link href="/" className="hover:text-gray-300 flex items-center">
-            <Image
-              src="/logo.png"
-              width={32}
-              height={32}
-              alt="Logo"
-              className="mr-2"
-            />
+            <span className="text-sm mr-1">◆</span>
             {METADATA_TITLE}
           </Link>
         </div>
