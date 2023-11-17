@@ -2,12 +2,12 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-        // MicroCMSの画像を対象にする
-        {
-          protocol: 'https',
-          hostname: 'images.microcms-assets.io',
-        },
-      ],
+      // MicroCMSの画像を対象にする
+      {
+        protocol: "https",
+        hostname: "images.microcms-assets.io",
+      },
+    ],
   },
 };
 

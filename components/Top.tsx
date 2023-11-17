@@ -41,7 +41,7 @@ export const Top: FC = () => {
   // Set the initial category based on searchParams
   const initialCategory = search || FILTER_ALL_CATEGORIES;
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(
-    initialCategory as ContentCategory
+    initialCategory as ContentCategory,
   );
 
   // https://nextjs.org/docs/app/api-reference/functions/use-search-params
@@ -53,7 +53,7 @@ export const Top: FC = () => {
       params.set(name, value);
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   useEffect(() => {
@@ -118,8 +118,8 @@ export const Top: FC = () => {
             {isFetchingNextPage
               ? "Loading more..."
               : hasNextPage
-              ? "Load More"
-              : "Nothing more to load"}
+                ? "Load More"
+                : "Nothing more to load"}
           </button>
         </div>
       )}
