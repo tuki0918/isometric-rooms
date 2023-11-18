@@ -7,6 +7,7 @@ export interface RoomContent {
   image: {
     url: string;
   };
+  is_generated_by_ai: boolean;
 }
 
 export const RoomThumbnail: FC<{
@@ -50,12 +51,13 @@ const DownloadButton: FC<{
 export const Room: FC<{
   content: RoomContent;
 }> = ({ content }) => {
-  const { title, image } = content;
+  const { title, image, is_generated_by_ai } = content;
   const [hover, setHover] = useState(false);
 
+  const caption = is_generated_by_ai ? `${title} / AI` : `${title}`;
   const label = (
     <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
-      {title}
+      {caption}
     </div>
   );
 
