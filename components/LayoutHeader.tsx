@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import Link from "next/link";
 import { Outfit } from "next/font/google";
+import Link from "next/link";
+import { FC } from "react";
 const outfit = Outfit({ weight: "400", subsets: ["latin"] });
 
 export const METADATA_TITLE = "Isometric Rooms";

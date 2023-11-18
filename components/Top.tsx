@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState, useCallback } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useInfiniteRooms, ContentCategory } from "../hooks/useRooms";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FC, useCallback, useEffect, useState } from "react";
+import { ContentCategory, useInfiniteRooms } from "../hooks/useRooms";
 import { GridRooms, GridSkeletonRooms } from "./GridRooms";
 
 const FILTER_ALL_CATEGORIES = "すべて";
