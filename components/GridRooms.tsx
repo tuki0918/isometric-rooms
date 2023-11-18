@@ -10,7 +10,7 @@ export interface RoomContent {
   is_generated_by_ai: boolean;
 }
 
-export const RoomThumbnail: FC<{
+const RoomThumbnail: FC<{
   src: string;
   alt: string;
 }> = ({ src, alt }) => {
@@ -132,7 +132,7 @@ export const NotFoundRoom = () => {
   );
 };
 
-export const SkeletonRoom = () => {
+const SkeletonRoom = () => {
   const label = (
     <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
       Loading...
