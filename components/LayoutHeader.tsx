@@ -10,7 +10,7 @@ export const LayoutHeader: FC = () => {
       <div className="container mx-auto flex min-w-full items-center justify-between">
         <div className={`text-lg font-bold ${outfit.className}`}>
           <Link href="/" className="flex items-center hover:text-gray-300">
-            <span className="mr-1 text-sm">◆</span>
+            <span className="mr-1">⬢</span>
             {METADATA_TITLE}
           </Link>
         </div>
