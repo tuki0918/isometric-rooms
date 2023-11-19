@@ -74,6 +74,6 @@ export const NotFound: Story = {
   },
 };
 
-export const gridSkeletonRooms: Preview = {
+export const Loading: Preview = {
   decorators: [(Story) => <GridSkeletonRooms />],
 };
