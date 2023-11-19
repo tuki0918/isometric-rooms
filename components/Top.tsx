@@ -1,5 +1,5 @@
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { useQueryParams } from "../hooks/useQueryParams";
 import { ContentCategory, useInfiniteRooms } from "../hooks/useRooms";
 import CategoryButton, {
   FILTER_ALL,
@@ -9,27 +9,13 @@ import CategoryButton, {
 import { GridRooms, GridSkeletonRooms } from "./GridRooms";
 
 export const Top: FC = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams()!;
+  const { searchParams, setQueryParam } = useQueryParams();
   const search = searchParams.get("category");
 
   // Set the initial category based on searchParams
   const initialCategory = search || FILTER_ALL;
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(
     initialCategory as ContentCategory,
-  );
-
-  // https://nextjs.org/docs/app/api-reference/functions/use-search-params
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      return params.toString();
-    },
-    [searchParams],
   );
 
   useEffect(() => {
@@ -59,7 +45,7 @@ export const Top: FC = () => {
 
   const handleSelectCategory = (category: FilterCategory) => () => {
     setSelectedCategory(category);
-    router.push(`${pathname}?${createQueryString("category", category)}`);
+    setQueryParam("category", category);
   };
 
   const contents =
