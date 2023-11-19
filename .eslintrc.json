@@ -12,5 +12,6 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
+  "ignorePatterns": ["jest.config.js"],
   "root": true
 }
