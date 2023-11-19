@@ -24,6 +24,7 @@ export const Selected: Story = {
 
 export const Clickable: StoryObj<typeof CategoryButton> = {
   render: (args) => {
+    /* eslint-disable react-hooks/rules-of-hooks */
     const [isSelected, setIsSelected] = useState(args.isSelected);
 
     return (

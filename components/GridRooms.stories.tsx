@@ -49,9 +49,9 @@ export const Default: Story = {
   },
 };
 
-export const room: Preview = {
+export const Content: Preview = {
   decorators: [
-    (Story) => (
+    () => (
       <div style={{ width: "512px", height: "512px" }}>
         <Room
           content={{
@@ -75,5 +75,5 @@ export const NotFound: Story = {
 };
 
 export const Loading: Preview = {
-  decorators: [(Story) => <GridSkeletonRooms />],
+  decorators: [() => <GridSkeletonRooms />],
 };
