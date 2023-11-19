@@ -7,6 +7,7 @@ import CategoryButton, {
   FilterCategory,
 } from "./CategoryButton";
 import { GridRooms, GridSkeletonRooms } from "./GridRooms";
+import LoadMoreButton from "./LoadMoreButton";
 
 export const Top: FC = () => {
   const { searchParams, setQueryParam } = useQueryParams();
@@ -71,19 +72,11 @@ export const Top: FC = () => {
       {contents}
 
       {hasNextPage && (
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={() => void fetchNextPage()}
-            disabled={isFetchingNextPage}
-            className={`rounded-full bg-white px-4 py-2 text-xs font-semibold text-blue-500 hover:bg-blue-500 hover:text-white`}
-          >
-            {isFetchingNextPage
-              ? "Loading more..."
-              : hasNextPage
-                ? "Load More"
-                : "Nothing more to load"}
-          </button>
-        </div>
+        <LoadMoreButton
+          isLoading={isFetchingNextPage}
+          hasMore={hasNextPage}
+          onLoadMore={() => void fetchNextPage()}
+        />
       )}
     </div>
   );
