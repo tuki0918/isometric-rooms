@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import LoadMoreButton from "../components/LoadMoreButton";
+import LoadMoreButton from "./LoadMoreButton";
 
 const meta: Meta<typeof LoadMoreButton> = {
   component: LoadMoreButton,
