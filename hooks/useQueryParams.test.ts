@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react";
-import { useQueryParams } from "../../hooks/useQueryParams";
+import { useQueryParams } from "./useQueryParams";
 
 const useRouter = jest.fn();
 const usePathname = jest.fn();
