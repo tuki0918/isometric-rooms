@@ -1,36 +1,12 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, useCallback, useEffect, useState } from "react";
 import { ContentCategory, useInfiniteRooms } from "../hooks/useRooms";
-import { GridRooms, GridSkeletonRooms } from "./GridRooms";
-
-const FILTER_ALL_CATEGORIES = "すべて";
-type FilterCategory = typeof FILTER_ALL_CATEGORIES | ContentCategory;
-const categories: FilterCategory[] = [
+import CategoryButton, {
+  FILTER_ALL,
   FILTER_ALL_CATEGORIES,
-  "部屋",
-  "店舗",
-  "モノ",
-  "自然",
-  // "未分類",
-];
-
-const CategoryButton: FC<{
-  category: FilterCategory;
-  isSelected: boolean;
-  onSelect: () => void;
-}> = ({ category, isSelected, onSelect }) => (
-  // TODO: UI style
-  <button
-    className={`rounded-full px-4 py-2 text-xs ${
-      isSelected
-        ? "pointer-events-none bg-blue-500 font-bold text-white"
-        : "bg-white font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
-    }`}
-    onClick={onSelect}
-  >
-    {category}
-  </button>
-);
+  FilterCategory,
+} from "./CategoryButton";
+import { GridRooms, GridSkeletonRooms } from "./GridRooms";
 
 export const Top: FC = () => {
   const router = useRouter();
@@ -39,7 +15,7 @@ export const Top: FC = () => {
   const search = searchParams.get("category");
 
   // Set the initial category based on searchParams
-  const initialCategory = search || FILTER_ALL_CATEGORIES;
+  const initialCategory = search || FILTER_ALL;
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(
     initialCategory as ContentCategory,
   );
@@ -57,11 +33,11 @@ export const Top: FC = () => {
   );
 
   useEffect(() => {
-    setSelectedCategory((search as ContentCategory) || FILTER_ALL_CATEGORIES);
+    setSelectedCategory((search as ContentCategory) || FILTER_ALL);
   }, [search]);
 
   const filters =
-    selectedCategory !== FILTER_ALL_CATEGORIES
+    selectedCategory !== FILTER_ALL
       ? `category[contains]${selectedCategory}`
       : undefined;
 
@@ -96,7 +72,7 @@ export const Top: FC = () => {
   return (
     <div>
       <div className="mb-4 flex justify-center space-x-2">
-        {categories.map((category) => (
+        {FILTER_ALL_CATEGORIES.map((category) => (
           <CategoryButton
             key={category}
             category={category}
