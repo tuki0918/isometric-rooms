@@ -4,7 +4,6 @@ import { LayoutHeader } from "../components/LayoutHeader";
 
 const meta: Meta<typeof LayoutHeader> = {
   component: LayoutHeader,
-  // tags: ["autodocs"],
 };
 
 export default meta;

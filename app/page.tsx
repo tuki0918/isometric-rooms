@@ -5,7 +5,6 @@ import { Top } from "../components/Top";
 
 const queryClient = new QueryClient();
 
-// TODO: storybook
 // TODO: Client Component or Server Components
 export default function Home() {
   return (

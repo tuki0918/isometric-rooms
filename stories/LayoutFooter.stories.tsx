@@ -4,7 +4,6 @@ import { LayoutFooter } from "../components/LayoutFooter";
 
 const meta: Meta<typeof LayoutFooter> = {
   component: LayoutFooter,
-  // tags: ["autodocs"],
 };
 
 export default meta;
