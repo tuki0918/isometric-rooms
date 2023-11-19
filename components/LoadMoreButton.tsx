@@ -8,7 +8,7 @@ const LoadMoreButton: FC<{
   <div className="mt-8 flex justify-center">
     <button
       onClick={onLoadMore}
-      disabled={isLoading}
+      disabled={isLoading || !hasMore}
       className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
     >
       {isLoading
