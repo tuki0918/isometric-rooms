@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { client, Queries } from "../utils/microCMS";
+import { client, Queries } from "utils/microCMS";
 
 export type ContentCategory = "部屋" | "店舗" | "モノ" | "自然" | "未分類";
 

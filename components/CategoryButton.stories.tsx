@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import CategoryButton from "./CategoryButton";
+import CategoryButton from "components/CategoryButton";
 
 const meta: Meta<typeof CategoryButton> = {
   component: CategoryButton,

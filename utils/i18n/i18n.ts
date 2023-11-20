@@ -1,5 +1,5 @@
 import { getRequestConfig } from "next-intl/server";
-import { i18n, Locale } from "./i18n-config";
+import { i18n, Locale } from "utils/i18n/i18n-config";
 
 const loadLocaleMessages = async (
   locale: Locale,

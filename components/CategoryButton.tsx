@@ -1,5 +1,5 @@
+import { ContentCategory } from "hooks/useRooms";
 import { FC } from "react";
-import { ContentCategory } from "../hooks/useRooms";
 
 export const FILTER_ALL = "すべて";
 export type FilterCategory = typeof FILTER_ALL | ContentCategory;

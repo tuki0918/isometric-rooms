@@ -1,6 +1,6 @@
 import type { Meta, Preview, StoryObj } from "@storybook/react";
 
-import { GridRooms, GridSkeletonRooms, Room } from "./GridRooms";
+import { GridRooms, GridSkeletonRooms, Room } from "components/GridRooms";
 
 const meta: Meta<typeof GridRooms> = {
   component: GridRooms,

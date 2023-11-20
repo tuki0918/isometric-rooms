@@ -1,13 +1,13 @@
-import { FC, useEffect, useState } from "react";
-import { useQueryParams } from "../hooks/useQueryParams";
-import { ContentCategory, useInfiniteRooms } from "../hooks/useRooms";
 import CategoryButton, {
   FILTER_ALL,
   FILTER_ALL_CATEGORIES,
   FilterCategory,
-} from "./CategoryButton";
-import { GridRooms, GridSkeletonRooms } from "./GridRooms";
-import LoadMoreButton from "./LoadMoreButton";
+} from "components/CategoryButton";
+import { GridRooms, GridSkeletonRooms } from "components/GridRooms";
+import LoadMoreButton from "components/LoadMoreButton";
+import { useQueryParams } from "hooks/useQueryParams";
+import { ContentCategory, useInfiniteRooms } from "hooks/useRooms";
+import { FC, useEffect, useState } from "react";
 
 export const Top: FC = () => {
   const { searchParams, setQueryParam } = useQueryParams();

@@ -1,11 +1,11 @@
 import { act, renderHook } from "@testing-library/react";
+import { useQueryParams } from "hooks/useQueryParams";
 import {
   ReadonlyURLSearchParams,
   usePathname,
   useRouter,
   useSearchParams,
 } from "next/navigation";
-import { useQueryParams } from "./useQueryParams";
 
 const mocUseRouter = jest.fn<
   ReturnType<typeof useRouter>,

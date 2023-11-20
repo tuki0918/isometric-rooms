@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import { i18n } from "./utils/i18n/i18n-config";
+import { i18n } from "utils/i18n/i18n-config";
 
 export default createMiddleware({
   ...i18n,
