@@ -4,9 +4,9 @@ import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LayoutFooter } from "../../components/LayoutFooter";
 import { LayoutHeader, METADATA_TITLE } from "../../components/LayoutHeader";
-import getRequestConfig from "./../../utils/i18n/i18n";
-import { Locale, i18n } from "./../../utils/i18n/i18n-config";
-import "./../globals.css";
+import getRequestConfig from "../../utils/i18n/i18n";
+import { Locale, i18n } from "../../utils/i18n/i18n-config";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   description: "",
 };
 
-// Can be imported from a shared config
 const locales: Locale[] = i18n.locales as unknown as Locale[];
 
 export default async function RootLayout({
