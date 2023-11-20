@@ -1,6 +1,19 @@
-import { useTranslations } from "next-intl";
+"use client";
 
-export default function Index() {
-  const t = useTranslations("Index");
-  return <h1>{t("title")}</h1>;
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Top } from "../../components/Top";
+
+const queryClient = new QueryClient();
+
+// TODO: Client Component or Server Components
+export default function Home() {
+  return (
+    <div>
+      <div className="m-4">
+        <QueryClientProvider client={queryClient}>
+          <Top />
+        </QueryClientProvider>
+      </div>
+    </div>
+  );
 }
