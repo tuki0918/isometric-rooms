@@ -1,5 +1,7 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "LoadMoreButton": {
+    "hasMore": "Load More",
+    "isLoading": "Loading more...",
+    "nothing": "Nothing more to load"
   }
 }
