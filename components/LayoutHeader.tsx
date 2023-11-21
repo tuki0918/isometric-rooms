@@ -1,4 +1,4 @@
-import LocaleSlector from "components/LocaleSlector";
+import LanguageDropdown from "components/LanguageDropdown";
 import { Outfit } from "next/font/google";
 import Link from "next/link";
 import { FC } from "react";
@@ -17,7 +17,7 @@ export const LayoutHeader: FC = () => {
         </div>
         <ul className="flex space-x-4">
           <li>
-            <LocaleSlector />
+            <LanguageDropdown />
           </li>
         </ul>
       </div>
