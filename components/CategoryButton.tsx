@@ -7,7 +7,7 @@ export type FilterCategory = typeof FILTER_ALL | ContentCategory;
 export const FILTER_ALL_CATEGORIES: FilterCategory[] = [
   FILTER_ALL,
   "部屋",
-  "店舗",
+  "施設",
   "モノ",
   "自然",
   // "未分類",
@@ -18,7 +18,7 @@ const alias: {
 } = {
   すべて: "all",
   部屋: "rooms",
-  店舗: "facilities",
+  施設: "facilities",
   モノ: "objects",
   自然: "nature",
   未分類: "other",
