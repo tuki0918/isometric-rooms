@@ -58,7 +58,20 @@ export const Top: FC = () => {
 
   return (
     <div>
-      <div className="mb-4 flex justify-center space-x-2">
+      <div className="bg-white dark:bg-gray-900">
+        <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:py-16">
+          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+            XXX XXX XXX
+          </h1>
+          <p className="text-lg font-normal text-gray-500 dark:text-gray-400 sm:px-16 lg:px-48 lg:text-xl">
+            XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX
+            XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX
+            XXX XXX
+          </p>
+        </div>
+      </div>
+
+      <div className="m-4 flex justify-center space-x-2">
         {FILTER_ALL_CATEGORIES.map((category) => (
           <CategoryButton
             key={category}
