@@ -22,6 +22,8 @@ const RoomThumbnail: FC<{
         height={512}
         alt={alt}
         className="h-auto w-full"
+        // for Largest Contentful Paint (LCP)
+        priority={true}
       />
     </div>
   );
