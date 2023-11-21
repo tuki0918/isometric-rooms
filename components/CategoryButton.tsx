@@ -13,6 +13,7 @@ export const FILTER_ALL_CATEGORIES: FilterCategory[] = [
   // "未分類",
 ];
 
+// Alias labels for translation from database labels
 const alias: {
   [key in FilterCategory]: string;
 } = {

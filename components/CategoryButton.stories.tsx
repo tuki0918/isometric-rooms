@@ -1,7 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, Preview, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import CategoryButton from "components/CategoryButton";
+import CategoryButton, {
+  FILTER_ALL_CATEGORIES,
+} from "components/CategoryButton";
 
 const meta: Meta<typeof CategoryButton> = {
   component: CategoryButton,
@@ -39,4 +41,21 @@ export const Clickable: StoryObj<typeof CategoryButton> = {
     category: "すべて",
     isSelected: false,
   },
+};
+
+export const All: Preview = {
+  decorators: [
+    () => (
+      <div className="mb-4 flex justify-center space-x-2">
+        {FILTER_ALL_CATEGORIES.map((category) => (
+          <CategoryButton
+            key={category}
+            category={category}
+            isSelected={false}
+            onSelect={() => void (() => {})}
+          />
+        ))}
+      </div>
+    ),
+  ],
 };
