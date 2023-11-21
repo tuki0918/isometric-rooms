@@ -15,7 +15,8 @@ const LayoutHeader: FC = () => {
             {METADATA_TITLE}
           </Link>
         </div>
-        <ul className="flex space-x-4">
+        <ul className="flex items-center justify-between space-x-4">
+          <li className="text-gray-500">Information</li>
           <li>
             <LanguageDropdown />
           </li>
