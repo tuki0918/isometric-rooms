@@ -3,5 +3,13 @@
     "hasMore": "Load More",
     "isLoading": "Loading more...",
     "nothing": "Nothing more to load"
+  },
+  "CategoryButton": {
+    "all": "All",
+    "rooms": "Rooms",
+    "facilities": "Facilities",
+    "objects": "Objects",
+    "nature": "nature",
+    "other": "other"
   }
 }
