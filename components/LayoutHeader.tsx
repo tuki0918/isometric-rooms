@@ -1,3 +1,4 @@
+import LocaleSlector from "components/LocaleSlector";
 import { Outfit } from "next/font/google";
 import Link from "next/link";
 import { FC } from "react";
@@ -14,13 +15,11 @@ export const LayoutHeader: FC = () => {
             {METADATA_TITLE}
           </Link>
         </div>
-        {/* <ul className="flex space-x-4">
+        <ul className="flex space-x-4">
           <li>
-            <Link href="/home" className="hover:text-gray-300">
-              dummy
-            </Link>
+            <LocaleSlector />
           </li>
-        </ul> */}
+        </ul>
       </div>
     </nav>
   );
