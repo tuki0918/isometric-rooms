@@ -1,12 +1,12 @@
 import "app/globals.css";
-import { LayoutFooter } from "components/LayoutFooter";
-import { LayoutHeader, METADATA_TITLE } from "components/LayoutHeader";
+import LayoutFooter from "components/LayoutFooter";
+import LayoutHeader, { METADATA_TITLE } from "components/LayoutHeader";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import getRequestConfig from "utils/i18n/i18n";
-import { Locale, i18n } from "utils/i18n/i18n-config";
+import { Locale, locales } from "utils/i18n/i18n-config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,8 +14,6 @@ export const metadata: Metadata = {
   title: METADATA_TITLE,
   description: "",
 };
-
-const locales: Locale[] = i18n.locales as unknown as Locale[];
 
 export default async function RootLayout({
   children,

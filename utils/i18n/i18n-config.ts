@@ -1,8 +1,12 @@
+export const locales = ["en", "ja"] as const;
+
+export type Locale = (typeof locales)[number];
+
+export const defaultLocale: Locale = "ja";
+
 export const i18n = {
   // A list of all locales that are supported
-  locales: ["en", "ja"],
+  locales,
   // Used when no locale matches
-  defaultLocale: "ja",
+  defaultLocale,
 } as const;
-
-export type Locale = (typeof i18n)["locales"][number];

@@ -3,7 +3,7 @@ import CategoryButton, {
   FILTER_ALL_CATEGORIES,
   FilterCategory,
 } from "components/CategoryButton";
-import { GridRooms, GridSkeletonRooms } from "components/GridRooms";
+import GridRooms, { GridSkeletonRooms } from "components/GridRooms";
 import LoadMoreButton from "components/LoadMoreButton";
 import { useQueryParams } from "hooks/useQueryParams";
 import { ContentCategory, useInfiniteRooms } from "hooks/useRooms";

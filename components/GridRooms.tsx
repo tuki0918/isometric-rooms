@@ -80,7 +80,7 @@ export const Room: FC<{
   );
 };
 
-export const GridRooms: FC<{
+const GridRooms: FC<{
   contents: RoomContent[];
 }> = ({ contents }) => {
   return (
@@ -99,6 +99,8 @@ export const GridRooms: FC<{
     </div>
   );
 };
+
+export default GridRooms;
 
 export const NotFoundRoom = () => {
   const label = (

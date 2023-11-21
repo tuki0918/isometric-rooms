@@ -1,10 +1,11 @@
+import LanguageDropdown from "components/LanguageDropdown";
 import { Outfit } from "next/font/google";
 import Link from "next/link";
 import { FC } from "react";
 const outfit = Outfit({ weight: "400", subsets: ["latin"] });
 
 export const METADATA_TITLE = "Isometric Rooms";
-export const LayoutHeader: FC = () => {
+const LayoutHeader: FC = () => {
   return (
     <nav className="bg-gray-800 p-4 text-white">
       <div className="container mx-auto flex min-w-full items-center justify-between">
@@ -14,14 +15,14 @@ export const LayoutHeader: FC = () => {
             {METADATA_TITLE}
           </Link>
         </div>
-        {/* <ul className="flex space-x-4">
+        <ul className="flex space-x-4">
           <li>
-            <Link href="/home" className="hover:text-gray-300">
-              dummy
-            </Link>
+            <LanguageDropdown />
           </li>
-        </ul> */}
+        </ul>
       </div>
     </nav>
   );
 };
+
+export default LayoutHeader;
