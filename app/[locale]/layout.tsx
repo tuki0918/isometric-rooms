@@ -1,6 +1,6 @@
 import "app/globals.css";
-import { LayoutFooter } from "components/LayoutFooter";
-import { LayoutHeader, METADATA_TITLE } from "components/LayoutHeader";
+import LayoutFooter from "components/LayoutFooter";
+import LayoutHeader, { METADATA_TITLE } from "components/LayoutHeader";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";

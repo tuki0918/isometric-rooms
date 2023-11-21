@@ -5,7 +5,7 @@ import { FC } from "react";
 const outfit = Outfit({ weight: "400", subsets: ["latin"] });
 
 export const METADATA_TITLE = "Isometric Rooms";
-export const LayoutHeader: FC = () => {
+const LayoutHeader: FC = () => {
   return (
     <nav className="bg-gray-800 p-4 text-white">
       <div className="container mx-auto flex min-w-full items-center justify-between">
@@ -24,3 +24,5 @@ export const LayoutHeader: FC = () => {
     </nav>
   );
 };
+
+export default LayoutHeader;

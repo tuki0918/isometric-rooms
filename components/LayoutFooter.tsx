@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-export const LayoutFooter: FC = () => {
+const LayoutFooter: FC = () => {
   return (
     <div className="mt-8 bg-gray-800 p-4 text-white">
       <div className="container mx-auto flex items-center justify-center text-center">
@@ -18,3 +18,5 @@ export const LayoutFooter: FC = () => {
     </div>
   );
 };
+
+export default LayoutFooter;
