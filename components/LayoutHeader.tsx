@@ -16,7 +16,6 @@ const LayoutHeader: FC = () => {
           </Link>
         </div>
         <ul className="flex items-center justify-between space-x-4">
-          <li className="text-gray-500">Information</li>
           <li>
             <LanguageDropdown />
           </li>
