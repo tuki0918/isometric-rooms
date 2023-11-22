@@ -24,8 +24,6 @@ export default function RootLayout({
 }) {
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale)) notFound();
-  // https://next-intl-docs.vercel.app/docs/environments/server-client-components
-  // Option 4: Providing all messages
   const messages = loadLocaleMessages(locale);
 
   return (
