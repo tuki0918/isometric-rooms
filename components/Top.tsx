@@ -73,7 +73,7 @@ export const Top: FC = () => {
       </div>
 
       {/* TODO: レスポンシブ対応のカテゴリメニューボタン */}
-      <div className="my-8 flex justify-center space-x-2">
+      <div className="my-8 flex justify-center space-x-2 md:space-x-4">
         {FILTER_ALL_CATEGORIES.map((category) => (
           <CategoryButton
             key={category}
@@ -84,7 +84,7 @@ export const Top: FC = () => {
         ))}
       </div>
 
-      {contents}
+      <div className="m-4">{contents}</div>
 
       {hasNextPage && (
         <div className="m-8 flex justify-center">

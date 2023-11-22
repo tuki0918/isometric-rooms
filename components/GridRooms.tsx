@@ -35,7 +35,7 @@ const DownloadButton: FC<{
   return (
     <a
       href={src}
-      className="inline-flex items-center rounded rounded border-4 px-4 py-2 text-lg font-bold text-white hover:border-emerald-500 hover:text-emerald-500"
+      className="inline-flex items-center rounded border-4 px-4 py-2 text-lg font-bold text-white hover:border-emerald-500 hover:text-emerald-500"
       target="_blank"
     >
       <svg
@@ -58,7 +58,7 @@ export const Room: FC<{
 
   const caption = is_generated_by_ai ? `${title} / AI` : `${title}`;
   const label = (
-    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
+    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
       {caption}
     </div>
   );
@@ -106,7 +106,7 @@ export default GridRooms;
 
 export const NotFoundRoom = () => {
   const label = (
-    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
+    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
       Not found
     </div>
   );
@@ -138,7 +138,7 @@ export const NotFoundRoom = () => {
 
 const SkeletonRoom = () => {
   const label = (
-    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-1 text-xs text-white">
+    <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
       Loading...
     </div>
   );

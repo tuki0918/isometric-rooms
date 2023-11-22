@@ -9,11 +9,9 @@ const queryClient = new QueryClient();
 export default function Home() {
   return (
     <div>
-      <div className="m-4">
-        <QueryClientProvider client={queryClient}>
-          <Top />
-        </QueryClientProvider>
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <Top />
+      </QueryClientProvider>
     </div>
   );
 }
