@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import getRequestConfig from "utils/i18n/i18n";
+import { loadLocaleMessages } from "utils/i18n/i18n";
 import { Locale, locales } from "utils/i18n/i18n-config";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params: { locale },
 }: {
@@ -26,7 +26,7 @@ export default async function RootLayout({
   if (!locales.includes(locale)) notFound();
   // https://next-intl-docs.vercel.app/docs/environments/server-client-components
   // Option 4: Providing all messages
-  const { messages } = await getRequestConfig({ locale });
+  const messages = loadLocaleMessages(locale);
 
   return (
     <html lang={locale}>
