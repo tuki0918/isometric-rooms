@@ -58,20 +58,6 @@ export const Top: FC = () => {
 
   return (
     <div>
-      {/* TODO: 説明とi18n対応 */}
-      <div className="bg-gray-900">
-        <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:py-16">
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
-            XXX XXX XXX
-          </h1>
-          <p className="text-lg font-normal text-gray-400 sm:px-16 lg:px-48 lg:text-xl">
-            XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX
-            XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX
-            XXX XXX
-          </p>
-        </div>
-      </div>
-
       {/* TODO: レスポンシブ対応のカテゴリメニューボタン */}
       <div className="my-8 flex justify-center space-x-2 md:space-x-4">
         {FILTER_ALL_CATEGORIES.map((category) => (
