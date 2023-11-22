@@ -1,6 +1,7 @@
 import "app/globals.css";
+import { SITE_TITLE } from "app/metadata";
 import LayoutFooter from "components/LayoutFooter";
-import LayoutHeader, { METADATA_TITLE } from "components/LayoutHeader";
+import LayoutHeader from "components/LayoutHeader";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
@@ -11,7 +12,10 @@ import { Locale, locales } from "utils/i18n/i18n-config";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: METADATA_TITLE,
+  title: {
+    default: SITE_TITLE,
+    template: `%s - ${SITE_TITLE}`,
+  },
   description: "",
 };
 
@@ -31,7 +35,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <header className="fixed top-0 z-50 w-full bg-white shadow-md">
-            <LayoutHeader />
+            <LayoutHeader title={SITE_TITLE} />
           </header>
           <main className="pt-16">{children}</main>
           <footer>
