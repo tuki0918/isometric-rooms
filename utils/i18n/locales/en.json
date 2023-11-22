@@ -11,5 +11,9 @@
     "objects": "Objects",
     "nature": "nature",
     "other": "other"
+  },
+  "GridRooms": {
+    "notFound": "Not Found",
+    "loading": "Loading..."
   }
 }

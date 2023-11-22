@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FC, useState } from "react";
 
@@ -105,9 +106,10 @@ const GridRooms: FC<{
 export default GridRooms;
 
 export const NotFoundRoom = () => {
+  const t = useTranslations("GridRooms");
   const label = (
     <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
-      Not found
+      {t("notFound")}
     </div>
   );
 
@@ -137,9 +139,10 @@ export const NotFoundRoom = () => {
 };
 
 const SkeletonRoom = () => {
+  const t = useTranslations("GridRooms");
   const label = (
     <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
-      Loading...
+      {t("loading")}
     </div>
   );
 

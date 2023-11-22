@@ -11,5 +11,9 @@
     "objects": "モノ",
     "nature": "自然",
     "other": "未分類"
+  },
+  "GridRooms": {
+    "notFound": "Not Found",
+    "loading": "Loading..."
   }
 }
