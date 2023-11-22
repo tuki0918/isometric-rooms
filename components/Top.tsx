@@ -73,7 +73,7 @@ export const Top: FC = () => {
       </div>
 
       {/* TODO: レスポンシブ対応のカテゴリメニューボタン */}
-      <div className="m-4 flex justify-center space-x-2">
+      <div className="my-8 flex justify-center space-x-2">
         {FILTER_ALL_CATEGORIES.map((category) => (
           <CategoryButton
             key={category}
@@ -87,11 +87,13 @@ export const Top: FC = () => {
       {contents}
 
       {hasNextPage && (
-        <LoadMoreButton
-          isLoading={isFetchingNextPage}
-          hasMore={hasNextPage}
-          onLoadMore={() => void fetchNextPage()}
-        />
+        <div className="m-8 flex justify-center">
+          <LoadMoreButton
+            isLoading={isFetchingNextPage}
+            hasMore={hasNextPage}
+            onLoadMore={() => void fetchNextPage()}
+          />
+        </div>
       )}
     </div>
   );

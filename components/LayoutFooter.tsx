@@ -4,7 +4,7 @@ import { FC } from "react";
 
 const LayoutFooter: FC = () => {
   return (
-    <div className="mt-8 bg-gray-800 p-4 text-white">
+    <div className="mt-16 bg-gray-800 p-4 text-white">
       <div className="container mx-auto flex h-8 w-8 items-center justify-center text-center">
         <Link href="https://github.com/tuki0918/isometric-rooms">
           <Image
