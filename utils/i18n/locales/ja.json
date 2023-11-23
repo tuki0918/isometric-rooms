@@ -8,7 +8,9 @@
     "isLoading": "読み込み中...",
     "nothing": "これ以上読み込むものはありません"
   },
-  "CategoryButton": {
+  "CategoryMenu": {
+    "title": "カテゴリー",
+    "delimiter": "：",
     "all": "すべて",
     "rooms": "部屋",
     "facilities": "施設",

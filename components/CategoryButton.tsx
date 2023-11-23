@@ -7,7 +7,7 @@ const CategoryButton: FC<{
   isSelected: boolean;
   onSelect: (category: FilterCategory) => void;
 }> = ({ category, isSelected, onSelect }) => {
-  const t = useTranslations("CategoryButton");
+  const t = useTranslations("CategoryMenu");
   const name = ALIAS_NAMES[category] || category;
   return (
     <button

@@ -8,13 +8,15 @@
     "isLoading": "Loading more...",
     "nothing": "Nothing more to load"
   },
-  "CategoryButton": {
+  "CategoryMenu": {
+    "title": "Category",
+    "delimiter": ": ",
     "all": "All",
     "rooms": "Rooms",
     "facilities": "Facilities",
     "objects": "Objects",
-    "nature": "nature",
-    "other": "other"
+    "nature": "Nature",
+    "other": "Other"
   },
   "GridRooms": {
     "notFound": "Not Found",

@@ -2,6 +2,7 @@ import CategoryButton from "components/CategoryButton";
 import CategorySelectorButton from "components/CategorySelectorButton";
 import { useQueryParams } from "hooks/useQueryParams";
 import { ContentCategory } from "hooks/useRooms";
+import { useTranslations } from "next-intl";
 import { FC, useCallback, useState } from "react";
 
 export const FILTER_ALL = "すべて";
@@ -43,9 +44,11 @@ const CategoryMenu: FC<{
     [setSelectedCategory, setQueryParam, setIsOpen],
   );
 
+  const t = useTranslations("CategoryMenu");
+  const name = ALIAS_NAMES[selectedCategory] || selectedCategory;
+
   return (
     <div>
-      {/* md: menu */}
       <div className="hidden md:my-8 md:flex md:justify-center md:space-x-4">
         {FILTER_ALL_CATEGORIES.map((category) => (
           <CategoryButton
@@ -57,14 +60,13 @@ const CategoryMenu: FC<{
         ))}
       </div>
 
-      {/* sd: menu */}
       <div className={`my-8 flex justify-center md:hidden`}>
         <div>
           <button
             onClick={toggleDropdown}
             className="inline-flex items-center rounded-full bg-blue-500 px-4 py-2 text-center text-xs font-bold text-white hover:bg-blue-600"
           >
-            {selectedCategory}{" "}
+            {`${t("title")}${t("delimiter")}${t(name)}`}
             <svg
               className="ms-3 h-2.5 w-2.5"
               aria-hidden="true"
@@ -74,16 +76,15 @@ const CategoryMenu: FC<{
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m1 1 4 4 4-4"
               />
             </svg>
           </button>
         </div>
 
-        {/* sd: dropdown */}
         <div
           className={`absolute z-10 w-44 divide-y divide-gray-100 rounded-lg bg-white shadow ${
             !isOpen ? "hidden" : ""
