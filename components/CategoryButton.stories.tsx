@@ -6,6 +6,7 @@ import CategoryButton, {
 } from "components/CategoryButton";
 
 const meta: Meta<typeof CategoryButton> = {
+  title: "Components/CategoryButton",
   component: CategoryButton,
   parameters: {
     layout: "centered",

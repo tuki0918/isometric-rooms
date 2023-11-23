@@ -4,6 +4,7 @@ import { SITE_TITLE } from "app/metadata";
 import LayoutHeader from "components/LayoutHeader";
 
 const meta: Meta<typeof LayoutHeader> = {
+  title: "Layout/LayoutHeader",
   component: LayoutHeader,
   args: {
     title: SITE_TITLE,

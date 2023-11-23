@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import LayoutFooter from "components/LayoutFooter";
 
 const meta: Meta<typeof LayoutFooter> = {
+  title: "Layout/LayoutFooter",
   component: LayoutFooter,
 };
 

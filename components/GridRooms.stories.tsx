@@ -3,6 +3,7 @@ import type { Meta, Preview, StoryObj } from "@storybook/react";
 import GridRooms, { GridSkeletonRooms, Room } from "components/GridRooms";
 
 const meta: Meta<typeof GridRooms> = {
+  title: "Components/GridRooms",
   component: GridRooms,
   tags: ["autodocs"],
 };
