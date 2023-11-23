@@ -1,20 +1,19 @@
-import { ALIAS_NAMES, FilterCategory } from "components/CategoryMenu";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
+import { ALIAS_NAMES, FilterCategory } from "./CategoryMenu";
 
-const CategoryButton: FC<{
+const CategorySelectorButton: FC<{
   category: FilterCategory;
   isSelected: boolean;
   onSelect: (category: FilterCategory) => void;
 }> = ({ category, isSelected, onSelect }) => {
   const t = useTranslations("CategoryMenu");
   const name = ALIAS_NAMES[category] || category;
+
   return (
     <button
-      className={`rounded-full px-4 py-2 text-xs ${
-        isSelected
-          ? "pointer-events-none bg-blue-500 font-bold text-white"
-          : "bg-white font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
+      className={`block w-full px-4 py-2 ${
+        isSelected ? "pointer-events-none font-bold" : "hover:bg-gray-100"
       }`}
       onClick={() => onSelect(category)}
     >
@@ -23,4 +22,4 @@ const CategoryButton: FC<{
   );
 };
 
-export default CategoryButton;
+export default CategorySelectorButton;

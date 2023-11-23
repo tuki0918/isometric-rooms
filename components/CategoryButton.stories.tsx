@@ -1,9 +1,8 @@
 import type { Meta, Preview, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import CategoryButton, {
-  FILTER_ALL_CATEGORIES,
-} from "components/CategoryButton";
+import CategoryButton from "components/CategoryButton";
+import { FILTER_ALL_CATEGORIES } from "components/CategoryMenu";
 
 const meta: Meta<typeof CategoryButton> = {
   title: "Components/CategoryButton",

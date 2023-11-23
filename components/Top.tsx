@@ -1,8 +1,8 @@
-import CategoryButton, {
+import CategoryMenu, {
   FILTER_ALL,
-  FILTER_ALL_CATEGORIES,
   FilterCategory,
-} from "components/CategoryButton";
+} from "components/CategoryMenu";
+
 import GridRooms, { GridSkeletonRooms } from "components/GridRooms";
 import LoadMoreButton from "components/LoadMoreButton";
 import { useQueryParams } from "hooks/useQueryParams";
@@ -10,7 +10,7 @@ import { ContentCategory, useInfiniteRooms } from "hooks/useRooms";
 import { FC, useEffect, useState } from "react";
 
 export const Top: FC = () => {
-  const { searchParams, setQueryParam } = useQueryParams();
+  const { searchParams } = useQueryParams();
   const search = searchParams.get("category");
 
   // Set the initial category based on searchParams
@@ -44,11 +44,6 @@ export const Top: FC = () => {
   // TODO: error handling
   if (status === "error") return <p>Error fetching data</p>;
 
-  const handleSelectCategory = (category: FilterCategory) => () => {
-    setSelectedCategory(category);
-    setQueryParam("category", category);
-  };
-
   const contents =
     data === undefined ? (
       <GridSkeletonRooms />
@@ -58,17 +53,10 @@ export const Top: FC = () => {
 
   return (
     <div>
-      {/* TODO: レスポンシブ対応のカテゴリメニューボタン */}
-      <div className="my-8 flex justify-center space-x-2 md:space-x-4">
-        {FILTER_ALL_CATEGORIES.map((category) => (
-          <CategoryButton
-            key={category}
-            category={category}
-            isSelected={selectedCategory === category}
-            onSelect={handleSelectCategory(category)}
-          />
-        ))}
-      </div>
+      <CategoryMenu
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
       <div className="m-4">{contents}</div>
 
