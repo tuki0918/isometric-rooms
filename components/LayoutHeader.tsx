@@ -1,7 +1,7 @@
 import LanguageDropdown from "components/LanguageDropdown";
 import { Outfit } from "next/font/google";
-import Link from "next/link";
 import { FC } from "react";
+import { Link } from "utils/i18n/navigation";
 const outfit = Outfit({ weight: "400", subsets: ["latin"] });
 
 const LayoutHeader: FC<{ title: string }> = ({ title }) => {
