@@ -1,22 +1,10 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { client, Queries } from "utils/microCMS";
+import type { ApiResponse, ContentBase, Image, Queries } from "types/microcms";
+import { client } from "utils/microCMS";
 
 export type ContentCategory = "部屋" | "施設" | "モノ" | "自然" | "未分類";
 
-export interface ApiResponse {
-  /** by microcms */
-  contents: Content[];
-  /** by microcms */
-  totalCount: number;
-  /** by microcms */
-  offset: number;
-  /** by microcms */
-  limit: number;
-}
-
-export interface Content {
-  /** by microcms */
-  id: string;
+interface RoomContent extends ContentBase {
   /** タイトル */
   title: string;
   /** 画像URL */
@@ -25,27 +13,13 @@ export interface Content {
   category: ContentCategory[];
   /** AI判定 */
   is_generated_by_ai: boolean;
-  /** by microcms */
-  publishedAt: string;
-  /** by microcms */
-  revisedAt: string;
-  /** by microcms */
-  createdAt: string;
-  /** by microcms */
-  updatedAt: string;
-}
-
-export interface Image {
-  /** by microcms */
-  url: string;
-  /** by microcms */
-  height: number;
-  /** by microcms */
-  width: number;
 }
 
 const fetchRooms = async (queries: Queries) => {
-  return await client.get<ApiResponse>({ endpoint: "rooms", queries });
+  return await client.get<ApiResponse<RoomContent>>({
+    endpoint: "rooms",
+    queries,
+  });
 };
 
 /**

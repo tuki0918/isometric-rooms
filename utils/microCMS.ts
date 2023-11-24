@@ -1,4 +1,4 @@
-import { createClient, MicroCMSQueries } from "microcms-js-sdk";
+import { createClient } from "microcms-js-sdk";
 
 // Initialize the microCMS client (GET only)
 export const client = createClient({
@@ -9,5 +9,3 @@ export const client = createClient({
     process.env.NEXT_PUBLIC_MICROCMS_APIKEY ||
     "NEXT_PUBLIC_MICROCMS_APIKEY is not defined",
 });
-
-export interface Queries extends MicroCMSQueries {}
