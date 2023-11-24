@@ -1,8 +1,22 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 import { createClient } from "microcms-js-sdk";
 import type { ApiResponse, ContentBase, Queries } from "types/microcms";
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 export type InfiniteContentsQueries = Queries & { limit: number };
+
+export const formatDate = (
+  content: Pick<ContentBase, "publishedAt" | "revisedAt">,
+  key: "publishedAt" | "revisedAt",
+) => {
+  const date = content[key];
+  return dayjs.utc(date).tz("Asia/Tokyo").format("YYYY-MM-DD");
+};
 
 // Initialize the microCMS client (GET only)
 export const client = createClient({
