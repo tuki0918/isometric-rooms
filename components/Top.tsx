@@ -9,19 +9,17 @@ import { useQueryParams } from "hooks/useQueryParams";
 import { ContentCategory, useInfiniteRooms } from "hooks/useRooms";
 import { FC, useEffect, useState } from "react";
 
-export const Top: FC = () => {
+const Top: FC = () => {
   const { searchParams } = useQueryParams();
-  const search = searchParams.get("category");
+  const category = searchParams.get("category");
 
-  // Set the initial category based on searchParams
-  const initialCategory = search || FILTER_ALL;
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(
-    initialCategory as ContentCategory,
+    (category as ContentCategory) || FILTER_ALL,
   );
 
   useEffect(() => {
-    setSelectedCategory((search as ContentCategory) || FILTER_ALL);
-  }, [search]);
+    setSelectedCategory((category as ContentCategory) || FILTER_ALL);
+  }, [category]);
 
   const filters =
     selectedCategory !== FILTER_ALL
@@ -41,16 +39,6 @@ export const Top: FC = () => {
     filters,
   });
 
-  // TODO: error handling
-  if (status === "error") return <p>Error fetching data</p>;
-
-  const contents =
-    data === undefined ? (
-      <GridSkeletonRooms />
-    ) : (
-      <GridRooms contents={data.pages.map((page) => page.contents).flat()} />
-    );
-
   return (
     <div>
       <CategoryMenu
@@ -58,7 +46,15 @@ export const Top: FC = () => {
         setSelectedCategory={setSelectedCategory}
       />
 
-      <div className="m-4">{contents}</div>
+      <div className="m-4">
+        {data === undefined || status === "error" ? (
+          <GridSkeletonRooms />
+        ) : (
+          <GridRooms
+            contents={data.pages.map((page) => page.contents).flat()}
+          />
+        )}
+      </div>
 
       {hasNextPage && (
         <div className="m-8 flex justify-center">
@@ -72,3 +68,5 @@ export const Top: FC = () => {
     </div>
   );
 };
+
+export default Top;
