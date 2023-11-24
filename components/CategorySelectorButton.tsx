@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { FC } from "react";
-import { ALIAS_NAMES, FilterCategory } from "./CategoryMenu";
+import { FilterCategory } from "./CategoryMenu";
 
 const CategorySelectorButton: FC<{
   category: FilterCategory;
@@ -8,8 +8,6 @@ const CategorySelectorButton: FC<{
   onSelect: (category: FilterCategory) => void;
 }> = ({ category, isSelected, onSelect }) => {
   const t = useTranslations("CategoryMenu");
-  const name = ALIAS_NAMES[category] || category;
-
   return (
     <button
       className={`block w-full px-4 py-2 ${
@@ -17,7 +15,7 @@ const CategorySelectorButton: FC<{
       }`}
       onClick={() => onSelect(category)}
     >
-      {t(name)}
+      {t(category)}
     </button>
   );
 };

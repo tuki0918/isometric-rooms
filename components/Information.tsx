@@ -1,21 +1,11 @@
 import LoadMoreButton from "components/LoadMoreButton";
 import {
-  ContentCategory,
   InformationContent,
-  useInfiniteInformations,
+  useInfiniteInformations
 } from "hooks/useInformations";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { formatDate } from "utils/microCMS";
-
-// Alias labels for translation from database labels
-export const ALIAS_NAMES: {
-  [key in ContentCategory]: string;
-} = {
-  お知らせ: "news",
-  リリース: "release",
-  未分類: "other",
-};
 
 const CriticalBadge: FC<{ label: string }> = ({ label }) => {
   return (
@@ -40,10 +30,9 @@ const InformationBadges: FC<{
   return (
     <div className="flex justify-start space-x-2">
       {content.category.map((category) => {
-        const name = ALIAS_NAMES[category] || category;
-        return <NoticeBadge key={category} label={t(name)} />;
+        return <NoticeBadge key={category} label={t(category)} />;
       })}
-      {content.is_critical && <CriticalBadge label={t("critical")} />}
+      {content.is_critical && <CriticalBadge label={t("重要")} />}
     </div>
   );
 };

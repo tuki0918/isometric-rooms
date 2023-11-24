@@ -16,18 +16,6 @@ export const FILTER_ALL_CATEGORIES: FilterCategory[] = [
   // "未分類",
 ];
 
-// Alias labels for translation from database labels
-export const ALIAS_NAMES: {
-  [key in FilterCategory]: string;
-} = {
-  すべて: "all",
-  部屋: "rooms",
-  施設: "facilities",
-  モノ: "objects",
-  自然: "nature",
-  未分類: "other",
-};
-
 const CategoryMenu: FC<{
   selectedCategory: FilterCategory;
   setSelectedCategory: (category: FilterCategory) => void;
@@ -45,8 +33,6 @@ const CategoryMenu: FC<{
   );
 
   const t = useTranslations("CategoryMenu");
-  const name = ALIAS_NAMES[selectedCategory] || selectedCategory;
-
   return (
     <div>
       <div className="hidden md:my-8 md:flex md:justify-center md:space-x-4">
@@ -66,7 +52,7 @@ const CategoryMenu: FC<{
             onClick={toggleDropdown}
             className="inline-flex items-center rounded-full bg-blue-500 px-4 py-2 text-center text-xs font-bold text-white hover:bg-blue-600"
           >
-            {`${t("title")}${t("delimiter")}${t(name)}`}
+            {`${t("title")}${t("delimiter")}${t(selectedCategory)}`}
             <svg
               className="ms-3 h-2.5 w-2.5"
               aria-hidden="true"

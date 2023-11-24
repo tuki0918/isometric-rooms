@@ -11,21 +11,21 @@
   "CategoryMenu": {
     "title": "Category",
     "delimiter": ": ",
-    "all": "All",
-    "rooms": "Rooms",
-    "facilities": "Facilities",
-    "objects": "Objects",
-    "nature": "Nature",
-    "other": "Other"
+    "すべて": "All",
+    "部屋": "Rooms",
+    "施設": "Facilities",
+    "モノ": "Objects",
+    "自然": "Nature",
+    "未分類": "Other"
   },
   "GridRooms": {
     "notFound": "Not Found",
     "loading": "Loading..."
   },
   "Information": {
-    "news": "News",
-    "release": "Release",
-    "critical": "Critical",
-    "other": "Other"
+    "お知らせ": "News",
+    "リリース": "Release",
+    "重要": "Critical",
+    "未分類": "Other"
   }
 }
