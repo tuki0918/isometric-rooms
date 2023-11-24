@@ -1,4 +1,10 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Information from "components/Information";
 import { useTranslations } from "next-intl";
+
+const queryClient = new QueryClient();
 
 export default function Page() {
   const t = useTranslations("Page/Information");
@@ -14,14 +20,9 @@ export default function Page() {
           </p>
         </div>
       </div>
-      {/* TODO: information content */}
-      <div>
-        <div className="my-8 flex justify-center space-x-2 md:space-x-4">
-          <span className="text-2xl font-bold text-gray-500">●</span>
-          <span className="text-2xl font-bold text-gray-500">●</span>
-          <span className="text-2xl font-bold text-gray-500">●</span>
-        </div>
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <Information />
+      </QueryClientProvider>
     </div>
   );
 }

@@ -21,5 +21,11 @@
   "GridRooms": {
     "notFound": "Not Found",
     "loading": "Loading..."
+  },
+  "Information": {
+    "news": "News",
+    "release": "Release",
+    "critical": "Critical",
+    "other": "Other"
   }
 }
