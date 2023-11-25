@@ -21,7 +21,7 @@ const Information: FC = () => {
   return (
     <div>
       <div className="m-4">
-        <div className="mx-auto w-3/4 md:w-1/2">
+        <div className="mx-auto w-3/4 md:w-1/2 xl:w-1/3">
           {data === undefined || status === "error" ? (
             <SkeletonInformation />
           ) : (
