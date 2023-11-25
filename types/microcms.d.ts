@@ -2,7 +2,13 @@ import { MicroCMSQueries } from "microcms-js-sdk";
 
 export interface Queries extends MicroCMSQueries {}
 
-export interface ApiResponse<T extends ContentBase> {
+export interface ApiResponse {}
+
+export type SingleContentResponse<T extends ContentBase> = ApiResponse & {
+  [Key in keyof T]: T[Key];
+};
+
+export type MultipleContentsResponse<T extends ContentBase> = ApiResponse & {
   /** by microcms */
   contents: T[];
   /** by microcms */
@@ -11,7 +17,7 @@ export interface ApiResponse<T extends ContentBase> {
   offset: number;
   /** by microcms */
   limit: number;
-}
+};
 
 export interface ContentBase {
   /** by microcms */

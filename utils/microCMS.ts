@@ -3,7 +3,12 @@ import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import { createClient } from "microcms-js-sdk";
-import type { ApiResponse, ContentBase, Queries } from "types/microcms";
+import type {
+  ContentBase,
+  MultipleContentsResponse,
+  Queries,
+  SingleContentResponse,
+} from "types/microcms";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -28,11 +33,21 @@ export const client = createClient({
     "NEXT_PUBLIC_MICROCMS_APIKEY is not defined",
 });
 
+export const fetchContent = async <T extends ContentBase>(
+  endpoint: string,
+  contentId: string,
+) => {
+  return await client.get<SingleContentResponse<T>>({
+    endpoint,
+    contentId,
+  });
+};
+
 export const fetchContents = async <T extends ContentBase>(
   endpoint: string,
   queries: Queries,
 ) => {
-  return await client.get<ApiResponse<T>>({
+  return await client.get<MultipleContentsResponse<T>>({
     endpoint,
     queries,
   });
