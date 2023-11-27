@@ -38,3 +38,6 @@ next-env.d.ts
 # Ignore artifacts:
 build
 coverage
+
+# Sentry Config File
+.sentryclirc

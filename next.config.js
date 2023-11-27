@@ -1,4 +1,9 @@
 const withNextIntl = require("next-intl/plugin")("./utils/i18n/i18n.ts");
+const { withSentryConfig } = require("@sentry/nextjs");
+const {
+  userSentryWebpackPluginOptions,
+  sentryOptions,
+} = require("./utils/sentry/sentry-config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,4 +18,10 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig);
+const nextWithSentryConfig = withSentryConfig(
+  nextConfig,
+  userSentryWebpackPluginOptions,
+  sentryOptions,
+);
+
+module.exports = withNextIntl(nextWithSentryConfig);
