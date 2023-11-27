@@ -1,7 +1,3 @@
-import { MicroCMSQueries } from "microcms-js-sdk";
-
-export interface Queries extends MicroCMSQueries {}
-
 export interface ApiResponse {}
 
 export type SingleContentResponse<T extends ContentBase> = ApiResponse & {
