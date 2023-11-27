@@ -9,6 +9,8 @@ Sentry.init({
     process.env.NEXT_PUBLIC_SENTRY_DSN ||
     "NEXT_PUBLIC_SENTRY_DSN is not defined",
 
+  environment: process.env.NEXT_PUBLIC_APP_ENV,
+
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
 
