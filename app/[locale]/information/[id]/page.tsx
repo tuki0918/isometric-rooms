@@ -31,7 +31,7 @@ export const PageLayout = async ({
   const t = await getTranslations("Common");
   return (
     <div>
-      <div className="mx-auto w-4/5 md:w-2/3">
+      <div className="mx-auto w-11/12 md:w-2/3">
         <div className="my-8 flex items-center space-x-4">
           <Link
             className="inline-flex items-center text-gray-500 hover:text-gray-600"

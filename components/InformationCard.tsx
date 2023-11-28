@@ -8,7 +8,7 @@ const InformationCard: FC<{ content: InformationContent }> = ({ content }) => {
   const revisedAt = formatDate(content, "revisedAt");
   return (
     <div>
-      <div className="rounded-md bg-white p-8 shadow">
+      <div className="rounded-md bg-white p-4 shadow md:p-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <InformationBadges content={content} />
@@ -39,7 +39,7 @@ const InformationCard: FC<{ content: InformationContent }> = ({ content }) => {
 export const SkeletonInformationCard: FC = () => {
   return (
     <div className="animate-pulse">
-      <div className="rounded-md bg-white p-8 shadow">
+      <div className="rounded-md bg-white p-4 shadow md:p-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="h-2.5 w-16 rounded-full bg-gray-200 dark:bg-gray-700"></div>
