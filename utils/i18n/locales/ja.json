@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "nav/back": "戻る"
+  },
   "Page/Information": {
     "title": "Information",
     "description": "お知らせやリリース情報などを更新します"

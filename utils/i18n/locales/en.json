@@ -1,4 +1,7 @@
 {
+  "Common": {
+    "nav/back": "Go Back"
+  },
   "Page/Information": {
     "title": "Information",
     "description": "We will update notices and release information, etc."
