@@ -1,13 +1,17 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CategoryMenu, {
   FILTER_ALL,
   FilterCategory,
 } from "components/CategoryMenu";
-
 import GridRooms, { GridSkeletonRooms } from "components/GridRooms";
 import LoadMoreButton from "components/LoadMoreButton";
 import { useQueryParams } from "hooks/useQueryParams";
 import { ContentCategory, useInfiniteRooms } from "hooks/useRooms";
 import { FC, useEffect, useState } from "react";
+
+const queryClient = new QueryClient();
 
 const Top: FC = () => {
   const { searchParams } = useQueryParams();
@@ -69,4 +73,12 @@ const Top: FC = () => {
   );
 };
 
-export default Top;
+const TopWithProvider: FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Top />
+    </QueryClientProvider>
+  );
+};
+
+export default TopWithProvider;

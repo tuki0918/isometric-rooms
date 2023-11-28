@@ -1,11 +1,6 @@
-"use client";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Top from "components/Top";
 import Script from "next/script";
 import { Link } from "utils/i18n/navigation";
-
-const queryClient = new QueryClient();
 
 export default function Home() {
   const GA_MEASUREMENT_ID =
@@ -67,9 +62,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <QueryClientProvider client={queryClient}>
-        <Top />
-      </QueryClientProvider>
+      <Top />
     </div>
   );
 }

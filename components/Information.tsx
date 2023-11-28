@@ -1,9 +1,14 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import InformationFeeds, {
   SkeletonInformation,
 } from "components/InformationFeeds";
 import LoadMoreButton from "components/LoadMoreButton";
 import { useInfiniteInformations } from "hooks/useInformations";
 import { FC } from "react";
+
+const queryClient = new QueryClient();
 
 const Information: FC = () => {
   const {
@@ -45,4 +50,12 @@ const Information: FC = () => {
   );
 };
 
-export default Information;
+const InformationWithProvider: FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Information />
+    </QueryClientProvider>
+  );
+};
+
+export default InformationWithProvider;
