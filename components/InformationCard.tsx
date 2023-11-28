@@ -14,6 +14,7 @@ const InformationCard: FC<{ content: InformationContent }> = ({ content }) => {
             <InformationBadges content={content} />
           </div>
 
+          {/* TODO:i18n */}
           <div className="flex items-center space-x-4">
             <div className="text-sm text-gray-400">公開日時：{publishedAt}</div>
             <div className="hidden text-sm text-gray-400 md:block">
