@@ -7,8 +7,10 @@ import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
   dsn:
-    process.env.NEXT_PUBLIC_SENTRY_DSN ||
-    "NEXT_PUBLIC_SENTRY_DSN is not defined",
+    process.env.NEXT_PUBLIC_ENABLE_LOG === "ON"
+      ? process.env.NEXT_PUBLIC_SENTRY_DSN ||
+        "NEXT_PUBLIC_SENTRY_DSN is not defined"
+      : undefined,
 
   environment: process.env.NEXT_PUBLIC_APP_ENV,
 

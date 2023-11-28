@@ -8,22 +8,28 @@ import { Link } from "utils/i18n/navigation";
 const queryClient = new QueryClient();
 
 export default function Home() {
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const GA_MEASUREMENT_ID =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+    "NEXT_PUBLIC_GA_MEASUREMENT_ID is not defined";
   return (
     <div>
       {/* Google Analytics */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-      />
-      <Script id="google-analytics">
-        {`
+      {process.env.NEXT_PUBLIC_ENABLE_LOG === "ON" && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <Script id="google-analytics">
+            {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
-      </Script>
+          </Script>
+        </>
+      )}
 
       {/* TODO: 説明とi18n対応 */}
       <div className="bg-gray-900">
