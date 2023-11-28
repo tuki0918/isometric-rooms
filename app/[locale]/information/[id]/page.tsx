@@ -11,24 +11,12 @@ type Props = {
 export default async function Page({ params }: Props) {
   const id = params.id;
   const content = await fetchContent<InformationContent>("informations", id);
+  const t = await getTranslations("Common");
 
   if (!content) {
     return <div>not found</div>;
   }
 
-  return (
-    <PageLayout>
-      <InformationCard content={content} />
-    </PageLayout>
-  );
-}
-
-export const PageLayout = async ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const t = await getTranslations("Common");
   return (
     <div>
       <div className="mx-auto w-11/12 md:w-2/3">
@@ -54,8 +42,10 @@ export const PageLayout = async ({
           </Link>
         </div>
 
-        <div className="my-8">{children}</div>
+        <div className="my-8">
+          <InformationCard content={content} />
+        </div>
       </div>
     </div>
   );
-};
+}
