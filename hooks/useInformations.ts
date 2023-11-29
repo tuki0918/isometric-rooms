@@ -1,9 +1,10 @@
-import type { ContentBase } from "types/microcms";
-import { InfiniteContentsQueries, useInfiniteContents } from "utils/microCMS";
+import type { MicroCMSListContent } from "microcms-js-sdk";
+import type { InfiniteContentsQueries } from "utils/microCMS";
+import { useInfiniteContents } from "utils/microCMS";
 
 export type ContentCategory = "お知らせ" | "リリース" | "未分類";
 
-export interface InformationContent extends ContentBase {
+export interface InformationContent extends MicroCMSListContent {
   /** タイトル */
   title: string;
   /** 内容（リッチエディタ） */

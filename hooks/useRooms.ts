@@ -1,13 +1,14 @@
-import type { ContentBase, Image } from "types/microcms";
-import { InfiniteContentsQueries, useInfiniteContents } from "utils/microCMS";
+import type { MicroCMSImage, MicroCMSListContent } from "microcms-js-sdk";
+import type { InfiniteContentsQueries } from "utils/microCMS";
+import { useInfiniteContents } from "utils/microCMS";
 
 export type ContentCategory = "部屋" | "施設" | "モノ" | "自然" | "未分類";
 
-interface RoomContent extends ContentBase {
+interface RoomContent extends MicroCMSListContent {
   /** タイトル */
   title: string;
   /** 画像URL */
-  image: Image;
+  image: MicroCMSImage;
   /** 投稿カテゴリ */
   category: ContentCategory[];
   /** AI判定 */

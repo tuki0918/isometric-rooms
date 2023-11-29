@@ -2,16 +2,14 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
-import {
-  CustomRequestInit,
-  MicroCMSQueries,
-  createClient,
-} from "microcms-js-sdk";
 import type {
-  ContentBase,
-  MultipleContentsResponse,
-  SingleContentResponse,
-} from "types/microcms";
+  CustomRequestInit,
+  MicroCMSDate,
+  MicroCMSListContent,
+  MicroCMSListResponse,
+  MicroCMSQueries,
+} from "microcms-js-sdk";
+import { createClient } from "microcms-js-sdk";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -19,7 +17,7 @@ dayjs.extend(timezone);
 export type InfiniteContentsQueries = MicroCMSQueries & { limit: number };
 
 export const formatDate = (
-  content: Pick<ContentBase, "publishedAt" | "revisedAt">,
+  content: Pick<MicroCMSDate, "publishedAt" | "revisedAt">,
   key: "publishedAt" | "revisedAt",
 ) => {
   const date = content[key];
@@ -36,13 +34,13 @@ export const client = createClient({
     "NEXT_PUBLIC_MICROCMS_APIKEY is not defined",
 });
 
-export const fetchContent = async <T extends ContentBase>(
+export const fetchContent = async <T extends MicroCMSListContent>(
   endpoint: string,
   contentId: string,
   queries?: MicroCMSQueries,
   customRequestInit?: CustomRequestInit,
 ) => {
-  return await client.get<SingleContentResponse<T>>({
+  return await client.get<T>({
     endpoint,
     contentId,
     queries,
@@ -50,11 +48,11 @@ export const fetchContent = async <T extends ContentBase>(
   });
 };
 
-export const fetchContents = async <T extends ContentBase>(
+export const fetchContents = async <T extends MicroCMSListContent>(
   endpoint: string,
   queries?: MicroCMSQueries,
 ) => {
-  return await client.get<MultipleContentsResponse<T>>({
+  return await client.get<MicroCMSListResponse<T>>({
     endpoint,
     queries,
   });
@@ -63,7 +61,7 @@ export const fetchContents = async <T extends ContentBase>(
 /**
  * `limit` is required for calculating `offset`.
  */
-export const useInfiniteContents = <T extends ContentBase>(
+export const useInfiniteContents = <T extends MicroCMSListContent>(
   endpoint: string,
   queries: InfiniteContentsQueries,
 ) => {
