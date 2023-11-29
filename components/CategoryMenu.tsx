@@ -1,12 +1,12 @@
 import CategoryButton from "components/CategoryButton";
 import CategorySelectorButton from "components/CategorySelectorButton";
 import { useQueryParams } from "hooks/useQueryParams";
-import { ContentCategory } from "hooks/useRooms";
 import { useTranslations } from "next-intl";
 import { FC, useCallback, useState } from "react";
+import type { RoomContentCategory } from "types/microcms";
 
 export const FILTER_ALL = "すべて";
-export type FilterCategory = typeof FILTER_ALL | ContentCategory;
+export type FilterCategory = typeof FILTER_ALL | RoomContentCategory;
 export const FILTER_ALL_CATEGORIES: FilterCategory[] = [
   FILTER_ALL,
   "部屋",

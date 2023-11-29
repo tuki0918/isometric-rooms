@@ -1,5 +1,5 @@
-import { InformationContent } from "hooks/useInformations";
 import { FC } from "react";
+import type { InformationContent } from "types/microcms";
 import { Link } from "utils/i18n/navigation";
 import { formatDate } from "utils/microCMS";
 import InformationBadges from "./InformationBadges";

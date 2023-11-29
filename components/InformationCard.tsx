@@ -1,6 +1,6 @@
 import InformationBadges from "components/InformationBadges";
-import type { InformationContent } from "hooks/useInformations";
 import { FC } from "react";
+import type { InformationContent } from "types/microcms";
 import { formatDate } from "utils/microCMS";
 
 const InformationCard: FC<{ content: InformationContent }> = ({ content }) => {

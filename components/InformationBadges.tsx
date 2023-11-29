@@ -1,6 +1,6 @@
-import { InformationContent } from "hooks/useInformations";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
+import type { InformationContent } from "types/microcms";
 
 const CriticalBadge: FC<{ label: string }> = ({ label }) => {
   return (

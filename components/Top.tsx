@@ -8,8 +8,9 @@ import CategoryMenu, {
 import GridRooms, { GridSkeletonRooms } from "components/GridRooms";
 import LoadMoreButton from "components/LoadMoreButton";
 import { useQueryParams } from "hooks/useQueryParams";
-import { ContentCategory, useInfiniteRooms } from "hooks/useRooms";
+import { useInfiniteRooms } from "hooks/useRooms";
 import { FC, useEffect, useState } from "react";
+import type { RoomContentCategory } from "types/microcms";
 
 const queryClient = new QueryClient();
 
@@ -18,11 +19,11 @@ const Top: FC = () => {
   const category = searchParams.get("category");
 
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(
-    (category as ContentCategory) || FILTER_ALL,
+    (category as RoomContentCategory) || FILTER_ALL,
   );
 
   useEffect(() => {
-    setSelectedCategory((category as ContentCategory) || FILTER_ALL);
+    setSelectedCategory((category as RoomContentCategory) || FILTER_ALL);
   }, [category]);
 
   const filters =

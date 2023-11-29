@@ -1,6 +1,6 @@
 import InformationCard from "components/InformationCard";
-import type { InformationContent } from "hooks/useInformations";
 import { getTranslations } from "next-intl/server";
+import type { InformationContent } from "types/microcms";
 import { Link } from "utils/i18n/navigation";
 import { fetchContent } from "utils/microCMS";
 
