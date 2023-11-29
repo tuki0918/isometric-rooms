@@ -10,7 +10,17 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const id = params.id;
-  const content = await fetchContent<InformationContent>("informations", id);
+  // cache lifetime (60 sec)
+  const content = await fetchContent<InformationContent>(
+    "informations",
+    id,
+    {},
+    {
+      next: {
+        revalidate: 60,
+      },
+    },
+  );
   const t = await getTranslations("Common");
 
   if (!content) {

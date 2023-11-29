@@ -2,7 +2,11 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
-import { createClient, MicroCMSQueries } from "microcms-js-sdk";
+import {
+  CustomRequestInit,
+  MicroCMSQueries,
+  createClient,
+} from "microcms-js-sdk";
 import type {
   ContentBase,
   MultipleContentsResponse,
@@ -35,10 +39,14 @@ export const client = createClient({
 export const fetchContent = async <T extends ContentBase>(
   endpoint: string,
   contentId: string,
+  queries?: MicroCMSQueries,
+  customRequestInit?: CustomRequestInit,
 ) => {
   return await client.get<SingleContentResponse<T>>({
     endpoint,
     contentId,
+    queries,
+    customRequestInit,
   });
 };
 
