@@ -61,7 +61,7 @@ export const SkeletonInformationCard: FC = () => {
           <div className="mb-4 h-3 w-1/2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
         </div>
 
-        <div className="w-1/2">
+        <div className="lg:w-2/3">
           <div className="mb-4 flex h-48 items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
             <svg
               className="h-10 w-10 text-gray-200 dark:text-gray-600"
