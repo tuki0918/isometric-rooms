@@ -34,5 +34,10 @@
   "CopyURLButton": {
     "copy": "Copy URL",
     "copied": "Copied"
+  },
+  "InformationCard": {
+    "delimiter": ": ",
+    "publishedAt": "Published Date",
+    "revisedAt": "Last Updated"
   }
 }

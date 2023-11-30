@@ -34,5 +34,10 @@
   "CopyURLButton": {
     "copy": "URLをコピー",
     "copied": "コピーしました"
+  },
+  "InformationCard": {
+    "delimiter": "：",
+    "publishedAt": "公開日時",
+    "revisedAt": "最終更新"
   }
 }
