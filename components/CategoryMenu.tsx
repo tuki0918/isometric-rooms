@@ -35,22 +35,24 @@ const CategoryMenu: FC<{
   const t = useTranslations("CategoryMenu");
   return (
     <div>
-      <div className="hidden md:my-8 md:flex md:justify-center md:space-x-4">
-        {FILTER_ALL_CATEGORIES.map((category) => (
-          <CategoryButton
-            key={category}
-            category={category}
-            isSelected={selectedCategory === category}
-            onSelect={handleSelectCategory}
-          />
-        ))}
+      <div className="my-8 hidden justify-center md:flex">
+        <div className="flex justify-center space-x-2 rounded-full border bg-white px-4 py-3">
+          {FILTER_ALL_CATEGORIES.map((category) => (
+            <CategoryButton
+              key={category}
+              category={category}
+              isSelected={selectedCategory === category}
+              onSelect={handleSelectCategory}
+            />
+          ))}
+        </div>
       </div>
 
       <div className={`my-8 flex justify-center md:hidden`}>
         <div>
           <button
             onClick={toggleDropdown}
-            className="inline-flex items-center rounded-full bg-blue-500 px-4 py-2 text-center text-xs font-bold text-white hover:bg-blue-600"
+            className="inline-flex items-center rounded-full bg-blue-500 px-4 py-3 text-center text-xs font-bold text-white hover:bg-blue-600"
           >
             {`${t("title")}${t("delimiter")}${t(selectedCategory)}`}
             <svg
