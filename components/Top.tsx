@@ -62,7 +62,7 @@ const Top: FC = () => {
       </div>
 
       {hasNextPage && (
-        <div className="m-8 flex justify-center">
+        <div className="m-16">
           <LoadMoreButton
             isLoading={isFetchingNextPage}
             hasMore={hasNextPage}

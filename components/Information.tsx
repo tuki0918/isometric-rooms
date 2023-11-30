@@ -34,18 +34,18 @@ const Information: FC = () => {
               contents={data.pages.map((page) => page.contents).flat()}
             />
           )}
+
+          {hasNextPage && (
+            <div>
+              <LoadMoreButton
+                isLoading={isFetchingNextPage}
+                hasMore={hasNextPage}
+                onLoadMore={() => void fetchNextPage()}
+              />
+            </div>
+          )}
         </div>
       </div>
-
-      {hasNextPage && (
-        <div className="m-8 flex justify-center">
-          <LoadMoreButton
-            isLoading={isFetchingNextPage}
-            hasMore={hasNextPage}
-            onLoadMore={() => void fetchNextPage()}
-          />
-        </div>
-      )}
     </div>
   );
 };
