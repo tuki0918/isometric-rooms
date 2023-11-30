@@ -1,6 +1,8 @@
 import CopyURLButton from "components/CopyURLButton";
 import InformationCard from "components/InformationCard";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import type { InformationContent } from "types/microcms";
 import { Link } from "utils/i18n/navigation";
 import { fetchContent } from "utils/microCMS";
@@ -9,10 +11,9 @@ type Props = {
   params: { id: string };
 };
 
-export default async function Page({ params }: Props) {
-  const id = params.id;
+async function getContent(id: string) {
   // cache lifetime (60 sec)
-  const content = await fetchContent<InformationContent>(
+  return await fetchContent<InformationContent>(
     "informations",
     id,
     {},
@@ -22,11 +23,22 @@ export default async function Page({ params }: Props) {
       },
     },
   );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = params.id;
+  const content = await getContent(id);
+  return {
+    title: content.title,
+  };
+}
+
+export default async function Page({ params }: Props) {
+  const id = params.id;
+  const content = await getContent(id);
   const t = await getTranslations("Common");
 
-  if (!content) {
-    return <div>not found</div>;
-  }
+  if (!content) return notFound();
 
   return (
     <div>
