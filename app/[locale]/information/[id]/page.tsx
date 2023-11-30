@@ -1,3 +1,4 @@
+import CopyURLButton from "components/CopyURLButton";
 import InformationCard from "components/InformationCard";
 import { getTranslations } from "next-intl/server";
 import type { InformationContent } from "types/microcms";
@@ -54,6 +55,10 @@ export default async function Page({ params }: Props) {
 
         <div className="my-8">
           <InformationCard content={content} />
+        </div>
+
+        <div className="my-8 flex items-center justify-center">
+          <CopyURLButton />
         </div>
       </div>
     </div>
