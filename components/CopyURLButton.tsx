@@ -1,9 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 const CopyURLButton = () => {
   const [isCopied, setIsCopied] = useState(false);
+  const t = useTranslations("CopyURLButton");
 
   const copyURLToClipboard = async () => {
     try {
@@ -33,7 +35,7 @@ const CopyURLButton = () => {
           >
             <path d="M5 13l4 4L19 7"></path>
           </svg>
-          コピーしました
+          {t("copied")}
         </>
       ) : (
         <>
@@ -48,7 +50,7 @@ const CopyURLButton = () => {
           >
             <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
           </svg>
-          URLをコピー
+          {t("copy")}
         </>
       )}
     </button>

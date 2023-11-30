@@ -30,5 +30,9 @@
     "リリース": "Release",
     "重要": "Critical",
     "未分類": "Other"
+  },
+  "CopyURLButton": {
+    "copy": "Copy URL",
+    "copied": "Copied"
   }
 }
