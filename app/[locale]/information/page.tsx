@@ -1,5 +1,11 @@
 import Information from "components/Information";
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "Information",
+  description: "",
+};
 
 export default function Page() {
   const t = useTranslations("Page/Information");
