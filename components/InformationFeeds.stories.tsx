@@ -1,5 +1,5 @@
 import type { Meta, Preview, StoryObj } from "@storybook/react";
-import { Information } from "domains/information";
+import { Information } from "domains/Information";
 
 import InformationFeeds, {
   SkeletonInformation,

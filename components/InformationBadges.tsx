@@ -1,4 +1,4 @@
-import { Information } from "domains/information";
+import { Information } from "domains/Information";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 

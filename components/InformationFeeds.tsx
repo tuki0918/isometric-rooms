@@ -1,4 +1,4 @@
-import { Information } from "domains/information";
+import { Information } from "domains/Information";
 import { FC } from "react";
 import { formatJSTDate } from "utils/date";
 import { Link } from "utils/i18n/navigation";

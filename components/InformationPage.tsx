@@ -5,7 +5,7 @@ import InformationFeeds, {
   SkeletonInformation,
 } from "components/InformationFeeds";
 import LoadMoreButton from "components/LoadMoreButton";
-import { Information } from "domains/information";
+import { Information } from "domains/Information";
 import { useInfiniteInformations } from "hooks/useInformations";
 import { FC } from "react";
 

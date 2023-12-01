@@ -1,4 +1,4 @@
-import { Room } from "domains/room";
+import { Room } from "domains/Room";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FC, useState } from "react";

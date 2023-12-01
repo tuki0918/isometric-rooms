@@ -1,6 +1,6 @@
 import CopyURLButton from "components/CopyURLButton";
 import InformationCard from "components/InformationCard";
-import { Information } from "domains/information";
+import { Information } from "domains/Information";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
