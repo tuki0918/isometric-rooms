@@ -1,10 +1,12 @@
 import CopyURLButton from "components/CopyURLButton";
 import InformationCard from "components/InformationCard";
+import { Information } from "domains/information";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { getInformation } from "repositories/information";
+import type { InformationContent } from "types/microcms";
 import { Link } from "utils/i18n/navigation";
+import { fetchContent } from "utils/microCMS";
 
 type Props = {
   params: { id: string };
@@ -12,15 +14,13 @@ type Props = {
 
 async function getContent(id: string) {
   // cache lifetime (60 sec)
-  return await getInformation(
+  const data = await fetchContent<InformationContent>(
+    "informations",
     id,
     {},
-    {
-      next: {
-        revalidate: 60,
-      },
-    },
+    { next: { revalidate: 60 } },
   );
+  return new Information(data);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
