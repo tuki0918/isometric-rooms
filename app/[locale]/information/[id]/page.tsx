@@ -3,9 +3,8 @@ import InformationCard from "components/InformationCard";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import type { InformationContent } from "types/microcms";
+import { getInformation } from "repositories/information";
 import { Link } from "utils/i18n/navigation";
-import { fetchContent } from "utils/microCMS";
 
 type Props = {
   params: { id: string };
@@ -13,8 +12,7 @@ type Props = {
 
 async function getContent(id: string) {
   // cache lifetime (60 sec)
-  return await fetchContent<InformationContent>(
-    "informations",
+  return await getInformation(
     id,
     {},
     {

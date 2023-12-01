@@ -5,12 +5,13 @@ import InformationFeeds, {
   SkeletonInformation,
 } from "components/InformationFeeds";
 import LoadMoreButton from "components/LoadMoreButton";
+import { Information } from "domains/information";
 import { useInfiniteInformations } from "hooks/useInformations";
 import { FC } from "react";
 
 const queryClient = new QueryClient();
 
-const Information: FC = () => {
+const InformationPage: FC = () => {
   const {
     data,
     // error,
@@ -31,7 +32,10 @@ const Information: FC = () => {
             <SkeletonInformation />
           ) : (
             <InformationFeeds
-              contents={data.pages.map((page) => page.contents).flat()}
+              contents={data.pages
+                .map((page) => page.contents)
+                .flat()
+                .map((content) => new Information(content))}
             />
           )}
 
@@ -50,12 +54,12 @@ const Information: FC = () => {
   );
 };
 
-const InformationWithProvider: FC = () => {
+const InformationPageWithProvider: FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Information />
+      <InformationPage />
     </QueryClientProvider>
   );
 };
 
-export default InformationWithProvider;
+export default InformationPageWithProvider;

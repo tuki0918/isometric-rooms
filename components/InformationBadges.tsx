@@ -1,6 +1,6 @@
+import { Information } from "domains/information";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
-import type { InformationContent } from "types/microcms";
 
 const CriticalBadge: FC<{ label: string }> = ({ label }) => {
   return (
@@ -19,7 +19,7 @@ const NoticeBadge: FC<{ label: string }> = ({ label }) => {
 };
 
 const InformationBadges: FC<{
-  content: InformationContent;
+  content: Information;
 }> = ({ content }) => {
   const t = useTranslations("Information");
   return (
@@ -27,7 +27,7 @@ const InformationBadges: FC<{
       {content.category.map((category) => {
         return <NoticeBadge key={category} label={t(category)} />;
       })}
-      {content.is_critical && <CriticalBadge label={t("重要")} />}
+      {content.isCritical && <CriticalBadge label={t("重要")} />}
     </div>
   );
 };
