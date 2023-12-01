@@ -16,6 +16,7 @@ const RoomCategorySchema = z.union([
 ]);
 
 const RoomSchema = z.object({
+  id: z.string(),
   title: z.string(),
   image: ImageSchema,
   category: z.array(RoomCategorySchema),
@@ -26,6 +27,7 @@ type ImageType = z.infer<typeof ImageSchema>;
 type RoomContentCategoryType = z.infer<typeof RoomCategorySchema>;
 
 export class Room {
+  #id: string;
   #title: string;
   #image: ImageType;
   #category: RoomContentCategoryType[];
@@ -34,10 +36,15 @@ export class Room {
   constructor(data: RoomContent) {
     const validatedData = RoomSchema.parse(data);
 
+    this.#id = validatedData.id;
     this.#title = validatedData.title;
     this.#image = validatedData.image;
     this.#category = validatedData.category;
     this.#is_generated_by_ai = validatedData.is_generated_by_ai;
+  }
+
+  get id() {
+    return this.#id;
   }
 
   get title() {
