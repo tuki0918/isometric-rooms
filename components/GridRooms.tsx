@@ -1,15 +1,7 @@
+import { Room } from "domains/room";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FC, useState } from "react";
-
-export interface RoomContent {
-  id: string;
-  title: string;
-  image: {
-    url: string;
-  };
-  is_generated_by_ai: boolean;
-}
 
 const RoomThumbnail: FC<{
   src: string;
@@ -51,13 +43,14 @@ const DownloadButton: FC<{
   );
 };
 
-export const Room: FC<{
-  content: RoomContent;
+export const RoomCard: FC<{
+  content: Room;
 }> = ({ content }) => {
-  const { title, image, is_generated_by_ai } = content;
   const [hover, setHover] = useState(false);
 
-  const caption = is_generated_by_ai ? `${title} / AI` : `${title}`;
+  const caption = content.isGeneratedByAi
+    ? `${content.title} / AI`
+    : `${content.title}`;
   const label = (
     <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
       {caption}
@@ -70,11 +63,11 @@ export const Room: FC<{
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <RoomThumbnail src={image.url} alt={title} />
+      <RoomThumbnail src={content.image.url} alt={content.title} />
       {hover && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="flex items-center justify-center">
-            <DownloadButton src={image.url} />
+            <DownloadButton src={content.image.url} />
           </div>
         </div>
       )}
@@ -84,7 +77,7 @@ export const Room: FC<{
 };
 
 const GridRooms: FC<{
-  contents: RoomContent[];
+  contents: Room[];
 }> = ({ contents }) => {
   return (
     <div>
@@ -96,7 +89,9 @@ const GridRooms: FC<{
             <NotFoundRoom />
           </>
         ) : (
-          contents.map((content) => <Room key={content.id} content={content} />)
+          contents.map((content) => (
+            <RoomCard key={content.id} content={content} />
+          ))
         )}
       </div>
     </div>
