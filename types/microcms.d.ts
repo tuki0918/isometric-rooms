@@ -25,3 +25,12 @@ export interface InformationContent extends MicroCMSListContent {
   /** 投稿カテゴリ */
   category: InformationContentCategory[];
 }
+
+export interface UserContent extends MicroCMSListContent {
+  /** ユーザID（別名：変更可※ユーニーク） */
+  alias_id: string;
+  /** ニックネーム */
+  name: string;
+  /** プロフィール画像 */
+  image: MicroCMSImage;
+}
