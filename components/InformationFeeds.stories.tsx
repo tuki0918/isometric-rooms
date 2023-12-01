@@ -1,4 +1,5 @@
 import type { Meta, Preview, StoryObj } from "@storybook/react";
+import { Information } from "domains/information";
 
 import InformationFeeds, {
   SkeletonInformation,
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof InformationFeeds>;
 export const Default: Story = {
   args: {
     contents: [
-      {
+      new Information({
         id: "5",
         createdAt: "2023-11-24T16:16:00.000Z",
         updatedAt: "2023-11-24T16:16:00.000Z",
@@ -27,8 +28,8 @@ export const Default: Story = {
         summary: "XXX \nXXX \nXXX \nXXX \nXXX ",
         is_critical: true,
         category: ["お知らせ"],
-      },
-      {
+      }),
+      new Information({
         id: "4",
         createdAt: "2023-11-24T15:00:00.000Z",
         updatedAt: "2023-11-24T15:00:00.000Z",
@@ -38,8 +39,8 @@ export const Default: Story = {
         content: "<p>...</p>",
         is_critical: false,
         category: ["リリース"],
-      },
-      {
+      }),
+      new Information({
         id: "3",
         createdAt: "2023-11-24T14:00:00.000Z",
         updatedAt: "2023-11-24T14:00:00.000Z",
@@ -49,8 +50,8 @@ export const Default: Story = {
         content: "<p>...</p>",
         is_critical: false,
         category: ["お知らせ"],
-      },
-      {
+      }),
+      new Information({
         id: "2",
         createdAt: "2023-11-23T12:00:00.000Z",
         updatedAt: "2023-11-23T12:00:00.000Z",
@@ -60,8 +61,8 @@ export const Default: Story = {
         content: "<p>...</p>",
         is_critical: false,
         category: ["お知らせ"],
-      },
-      {
+      }),
+      new Information({
         id: "1",
         createdAt: "2023-11-22T12:00:00.000Z",
         updatedAt: "2023-11-22T12:00:00.000Z",
@@ -73,7 +74,7 @@ export const Default: Story = {
           "XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX \nXXX XXX XXX XXX XXX XXX XXX XXX XXX XXX ",
         is_critical: true,
         category: ["リリース"],
-      },
+      }),
     ],
   },
 };

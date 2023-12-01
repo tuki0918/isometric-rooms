@@ -1,12 +1,10 @@
 import InformationBadges from "components/InformationBadges";
+import { Information } from "domains/information";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
-import type { InformationContent } from "types/microcms";
-import { formatDate } from "utils/microCMS";
+import { formatJSTDate } from "utils/date";
 
-const InformationCard: FC<{ content: InformationContent }> = ({ content }) => {
-  const publishedAt = formatDate(content, "publishedAt");
-  const revisedAt = formatDate(content, "revisedAt");
+const InformationCard: FC<{ content: Information }> = ({ content }) => {
   const t = useTranslations("InformationCard");
   return (
     <div>
@@ -20,12 +18,16 @@ const InformationCard: FC<{ content: InformationContent }> = ({ content }) => {
             <div className="text-sm text-gray-400">
               {t("publishedAt")}
               {t("delimiter")}
-              {publishedAt}
+              {content.publishedAt === undefined
+                ? ""
+                : formatJSTDate(content.publishedAt)}
             </div>
             <div className="hidden text-sm text-gray-400 md:block">
               {t("revisedAt")}
               {t("delimiter")}
-              {revisedAt}
+              {content.revisedAt === undefined
+                ? ""
+                : formatJSTDate(content.revisedAt)}
             </div>
           </div>
         </div>

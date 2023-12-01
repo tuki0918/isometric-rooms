@@ -1,9 +1,9 @@
-import Information from "components/Information";
+import InformationPage from "@/components/InformationPage";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "Information",
+  title: "InformationPage",
   description: "",
 };
 
@@ -21,7 +21,7 @@ export default function Page() {
           </p>
         </div>
       </div>
-      <Information />
+      <InformationPage />
     </div>
   );
 }
