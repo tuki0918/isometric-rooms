@@ -16,12 +16,13 @@ dayjs.extend(timezone);
 
 export type InfiniteContentsQueries = MicroCMSQueries & { limit: number };
 
-export const formatDate = (
+export const parseToDate = (
   content: Pick<MicroCMSDate, "publishedAt" | "revisedAt">,
   key: "publishedAt" | "revisedAt",
 ) => {
   const date = content[key];
-  return dayjs.utc(date).tz("Asia/Tokyo").format("YYYY-MM-DD");
+  if (!date) return undefined;
+  return dayjs.utc(date).toDate();
 };
 
 // Initialize the microCMS client (GET only)
