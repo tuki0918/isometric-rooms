@@ -10,6 +10,8 @@ export interface RoomContent extends MicroCMSListContent {
   category: RoomContentCategory[];
   /** AI判定 */
   is_generated_by_ai: boolean;
+  /** ユーザID（投稿者） */
+  created_by_user_id: string;
 }
 
 export type InformationContentCategory = "お知らせ" | "リリース" | "未分類";
@@ -32,5 +34,5 @@ export interface UserContent extends MicroCMSListContent {
   /** ニックネーム */
   name: string;
   /** プロフィール画像 */
-  image: MicroCMSImage;
+  image?: MicroCMSImage;
 }
