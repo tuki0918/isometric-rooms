@@ -46,7 +46,7 @@ const Top: FC = () => {
   });
 
   return (
-    <div>
+    <div className="container mx-auto">
       <CategoryMenu
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}

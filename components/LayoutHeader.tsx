@@ -6,8 +6,8 @@ const outfit = Outfit({ weight: "400", subsets: ["latin"] });
 
 const LayoutHeader: FC<{ title: string }> = ({ title }) => {
   return (
-    <nav className="bg-gray-800 p-4 text-white">
-      <div className="container mx-auto flex min-w-full items-center justify-between">
+    <nav className="bg-gray-800 text-white">
+      <div className="container mx-auto flex items-center justify-between p-4">
         <div className={`text-lg font-bold ${outfit.className}`}>
           <Link href="/" className="flex items-center hover:text-gray-300">
             <span className="mr-1">⬢</span>

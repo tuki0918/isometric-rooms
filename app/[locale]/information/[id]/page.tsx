@@ -39,8 +39,8 @@ export default async function Page({ params }: Props) {
   if (!content) return notFound();
 
   return (
-    <div>
-      <div className="mx-auto w-11/12 md:w-2/3">
+    <div className="container mx-auto">
+      <div className="mx-4 md:mx-8">
         <div className="my-8 flex items-center space-x-4">
           <Link
             className="inline-flex items-center text-gray-500 hover:text-gray-600"
