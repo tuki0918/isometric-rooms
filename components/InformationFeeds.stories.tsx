@@ -17,7 +17,7 @@ type Story = StoryObj<typeof InformationFeeds>;
 export const Default: Story = {
   args: {
     contents: [
-      new Information({
+      Information.create({
         id: "5",
         createdAt: "2023-11-24T16:16:00.000Z",
         updatedAt: "2023-11-24T16:16:00.000Z",
@@ -29,7 +29,7 @@ export const Default: Story = {
         is_critical: true,
         category: ["お知らせ"],
       }),
-      new Information({
+      Information.create({
         id: "4",
         createdAt: "2023-11-24T15:00:00.000Z",
         updatedAt: "2023-11-24T15:00:00.000Z",
@@ -40,7 +40,7 @@ export const Default: Story = {
         is_critical: false,
         category: ["リリース"],
       }),
-      new Information({
+      Information.create({
         id: "3",
         createdAt: "2023-11-24T14:00:00.000Z",
         updatedAt: "2023-11-24T14:00:00.000Z",
@@ -51,7 +51,7 @@ export const Default: Story = {
         is_critical: false,
         category: ["お知らせ"],
       }),
-      new Information({
+      Information.create({
         id: "2",
         createdAt: "2023-11-23T12:00:00.000Z",
         updatedAt: "2023-11-23T12:00:00.000Z",
@@ -62,7 +62,7 @@ export const Default: Story = {
         is_critical: false,
         category: ["お知らせ"],
       }),
-      new Information({
+      Information.create({
         id: "1",
         createdAt: "2023-11-22T12:00:00.000Z",
         updatedAt: "2023-11-22T12:00:00.000Z",

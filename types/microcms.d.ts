@@ -11,7 +11,7 @@ export interface RoomContent extends MicroCMSListContent {
   /** AI判定 */
   is_generated_by_ai: boolean;
   /** ユーザID（投稿者） */
-  created_by_user_id: string;
+  created_by_user_id?: string;
 }
 
 export type InformationContentCategory = "お知らせ" | "リリース" | "未分類";

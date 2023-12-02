@@ -4,9 +4,7 @@ import GridRooms, {
   GridRoomCard,
   GridSkeletonRooms,
 } from "components/GridRooms";
-import { Room } from "domains/Room";
 import { RoomCard } from "domains/RoomCard";
-import { User } from "domains/User";
 import type { RoomContent, UserContent } from "types/microcms";
 
 const meta: Meta<typeof GridRooms> = {
@@ -46,8 +44,8 @@ const anonymousUser: UserContent = {
 export const Default: Story = {
   args: {
     contents: [
-      new RoomCard({
-        room: new Room({
+      RoomCard.create({
+        room: {
           ...roomContent,
           id: "1",
           title: "title 1",
@@ -56,11 +54,11 @@ export const Default: Story = {
           },
           is_generated_by_ai: true,
           category: ["部屋"],
-        }),
-        user: new User(anonymousUser),
+        },
+        user: anonymousUser,
       }),
-      new RoomCard({
-        room: new Room({
+      RoomCard.create({
+        room: {
           ...roomContent,
           id: "2",
           title: "title 2",
@@ -70,11 +68,11 @@ export const Default: Story = {
           is_generated_by_ai: true,
           category: ["部屋"],
           created_by_user_id: "anonymous",
-        }),
-        user: new User(anonymousUser),
+        },
+        user: anonymousUser,
       }),
-      new RoomCard({
-        room: new Room({
+      RoomCard.create({
+        room: {
           ...roomContent,
           id: "3",
           title: "title 3",
@@ -84,11 +82,11 @@ export const Default: Story = {
           is_generated_by_ai: true,
           category: ["施設"],
           created_by_user_id: "anonymous",
-        }),
-        user: new User(anonymousUser),
+        },
+        user: anonymousUser,
       }),
-      new RoomCard({
-        room: new Room({
+      RoomCard.create({
+        room: {
           ...roomContent,
           id: "4",
           title: "title 4",
@@ -98,8 +96,8 @@ export const Default: Story = {
           is_generated_by_ai: false,
           category: ["未分類"],
           created_by_user_id: "anonymous",
-        }),
-        user: new User(anonymousUser),
+        },
+        user: anonymousUser,
       }),
     ],
   },
@@ -110,22 +108,20 @@ export const Content: Preview = {
     () => (
       <div style={{ width: "512px", height: "512px" }}>
         <GridRoomCard
-          content={
-            new RoomCard({
-              room: new Room({
-                ...roomContent,
-                id: "1",
-                title: "title 1",
-                image: {
-                  url: "logo.png",
-                },
-                is_generated_by_ai: true,
-                category: ["部屋"],
-                created_by_user_id: "anonymous",
-              }),
-              user: new User(anonymousUser),
-            })
-          }
+          content={RoomCard.create({
+            room: {
+              ...roomContent,
+              id: "1",
+              title: "title 1",
+              image: {
+                url: "logo.png",
+              },
+              is_generated_by_ai: true,
+              category: ["部屋"],
+              created_by_user_id: "anonymous",
+            },
+            user: anonymousUser,
+          })}
         />
       </div>
     ),

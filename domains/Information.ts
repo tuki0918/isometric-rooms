@@ -31,19 +31,22 @@ export class Information {
   #publishedAt: Date | undefined;
   #revisedAt: Date | undefined;
 
-  constructor(data: InformationContent) {
-    const validatedData = InformationSchema.parse(data);
-    const publishedAt = parseToDate(data, "publishedAt");
-    const revisedAt = parseToDate(data, "revisedAt");
+  private constructor(
+    data: Omit<InformationContent, "createdAt" | "updatedAt">,
+  ) {
+    this.#id = data.id;
+    this.#title = data.title;
+    this.#content = data.content;
+    this.#summary = data.summary;
+    this.#isCritical = data.is_critical;
+    this.#category = data.category;
+    this.#publishedAt = parseToDate(data, "publishedAt");
+    this.#revisedAt = parseToDate(data, "revisedAt");
+  }
 
-    this.#id = validatedData.id;
-    this.#title = validatedData.title;
-    this.#content = validatedData.content;
-    this.#summary = validatedData.summary;
-    this.#isCritical = validatedData.is_critical;
-    this.#category = validatedData.category;
-    this.#publishedAt = publishedAt;
-    this.#revisedAt = revisedAt;
+  static create(data: InformationContent): Information {
+    const validatedData = InformationSchema.parse(data);
+    return new Information(validatedData);
   }
 
   get id() {

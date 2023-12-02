@@ -7,9 +7,7 @@ import CategoryMenu, {
 } from "components/CategoryMenu";
 import GridRooms, { GridSkeletonRooms } from "components/GridRooms";
 import LoadMoreButton from "components/LoadMoreButton";
-import { Room } from "domains/Room";
 import { RoomCard } from "domains/RoomCard";
-import { User } from "domains/User";
 import { useQueryParams } from "hooks/useQueryParams";
 import { useInfiniteRooms } from "hooks/useRooms";
 import { FC, useEffect, useState } from "react";
@@ -62,13 +60,7 @@ const Top: FC = () => {
             contents={data.pages
               .map((page) => page.contents)
               .flat()
-              .map(
-                (content) =>
-                  new RoomCard({
-                    room: new Room(content.room),
-                    user: new User(content.user),
-                  }),
-              )}
+              .map((content) => RoomCard.create(content))}
           />
         )}
       </div>

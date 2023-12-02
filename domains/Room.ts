@@ -21,6 +21,7 @@ const RoomSchema = z.object({
   image: ImageSchema,
   category: z.array(RoomCategorySchema),
   is_generated_by_ai: z.boolean(),
+  created_by_user_id: z.string().optional(),
 });
 
 type ImageType = z.infer<typeof ImageSchema>;
@@ -32,15 +33,20 @@ export class Room {
   #image: ImageType;
   #category: RoomContentCategoryType[];
   #isGeneratedByAi: boolean;
+  #createdByUserId: string | undefined;
 
-  constructor(data: RoomContent) {
+  private constructor(data: Omit<RoomContent, "createdAt" | "updatedAt">) {
+    this.#id = data.id;
+    this.#title = data.title;
+    this.#image = data.image;
+    this.#category = data.category;
+    this.#isGeneratedByAi = data.is_generated_by_ai;
+    this.#createdByUserId = data.created_by_user_id;
+  }
+
+  static create(data: RoomContent): Room {
     const validatedData = RoomSchema.parse(data);
-
-    this.#id = validatedData.id;
-    this.#title = validatedData.title;
-    this.#image = validatedData.image;
-    this.#category = validatedData.category;
-    this.#isGeneratedByAi = validatedData.is_generated_by_ai;
+    return new Room(validatedData);
   }
 
   get id() {
@@ -61,5 +67,9 @@ export class Room {
 
   get isGeneratedByAi() {
     return this.#isGeneratedByAi;
+  }
+
+  get createdByUserId() {
+    return this.#createdByUserId;
   }
 }

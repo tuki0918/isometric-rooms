@@ -35,7 +35,7 @@ const InformationPage: FC = () => {
               contents={data.pages
                 .map((page) => page.contents)
                 .flat()
-                .map((content) => new Information(content))}
+                .map((content) => Information.create(content))}
             />
           )}
 

@@ -20,7 +20,7 @@ async function getContent(id: string) {
     {},
     { next: { revalidate: 60 } },
   );
-  return new Information(data);
+  return Information.create(data);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

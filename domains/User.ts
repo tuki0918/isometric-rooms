@@ -22,13 +22,16 @@ export class User {
   #name: string;
   #image: ImageType | undefined;
 
-  constructor(data: UserContent) {
-    const validatedData = UserSchema.parse(data);
+  private constructor(data: Omit<UserContent, "createdAt" | "updatedAt">) {
+    this.#id = data.id;
+    this.#aliasId = data.alias_id;
+    this.#name = data.name;
+    this.#image = data.image;
+  }
 
-    this.#id = validatedData.id;
-    this.#aliasId = validatedData.alias_id;
-    this.#name = validatedData.name;
-    this.#image = validatedData.image;
+  static create(data: UserContent): User {
+    const validatedData = UserSchema.parse(data);
+    return new User(validatedData);
   }
 
   get id() {
