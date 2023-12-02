@@ -35,7 +35,7 @@ const CategoryMenu: FC<{
   const t = useTranslations("CategoryMenu");
   return (
     <div>
-      <div className="my-8 hidden justify-center md:flex">
+      <div className="my-8 hidden justify-center sm:flex">
         <div className="flex justify-center space-x-2 rounded-full border bg-white px-4 py-3">
           {FILTER_ALL_CATEGORIES.map((category) => (
             <CategoryButton
@@ -48,7 +48,7 @@ const CategoryMenu: FC<{
         </div>
       </div>
 
-      <div className={`my-8 flex justify-center md:hidden`}>
+      <div className={`my-8 flex justify-center sm:hidden`}>
         <div>
           <button
             onClick={toggleDropdown}
