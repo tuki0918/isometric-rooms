@@ -1,5 +1,5 @@
 import "app/globals.css";
-import { SITE_TITLE } from "app/metadata";
+import { SITE_DESCRIPTION, SITE_TITLE } from "app/metadata";
 import LayoutFooter from "components/LayoutFooter";
 import LayoutHeader from "components/LayoutHeader";
 import type { Metadata } from "next";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: SITE_TITLE,
     template: `%s - ${SITE_TITLE}`,
   },
-  description: "",
+  description: SITE_DESCRIPTION,
 };
 
 export default function RootLayout({
