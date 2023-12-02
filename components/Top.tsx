@@ -7,6 +7,7 @@ import CategoryMenu, {
 } from "components/CategoryMenu";
 import GridRooms, { GridSkeletonRooms } from "components/GridRooms";
 import LoadMoreButton from "components/LoadMoreButton";
+import { Room } from "domains/Room";
 import { useQueryParams } from "hooks/useQueryParams";
 import { useInfiniteRooms } from "hooks/useRooms";
 import { FC, useEffect, useState } from "react";
@@ -56,7 +57,10 @@ const Top: FC = () => {
           <GridSkeletonRooms />
         ) : (
           <GridRooms
-            contents={data.pages.map((page) => page.contents).flat()}
+            contents={data.pages
+              .map((page) => page.contents)
+              .flat()
+              .map((content) => new Room(content))}
           />
         )}
       </div>
