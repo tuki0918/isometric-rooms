@@ -25,11 +25,11 @@ export class Information {
   #id: string;
   #title: string;
   #content: string;
-  #summary?: string;
+  #summary: string | undefined;
   #isCritical: boolean;
   #category: InformationCategoryType[];
-  #publishedAt?: Date;
-  #revisedAt?: Date;
+  #publishedAt: Date | undefined;
+  #revisedAt: Date | undefined;
 
   constructor(data: InformationContent) {
     const validatedData = InformationSchema.parse(data);
@@ -45,6 +45,7 @@ export class Information {
     this.#publishedAt = publishedAt;
     this.#revisedAt = revisedAt;
   }
+
   get id() {
     return this.#id;
   }
