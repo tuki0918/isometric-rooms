@@ -1,19 +1,8 @@
 import { ANONYMOUS_USER_ID } from "app/metadata";
 import { NextRequest, NextResponse } from "next/server";
+import type { ListResponse, RoomCardContent } from "types/api";
 import type { RoomContent, UserContent } from "types/microcms";
 import { fetchContents } from "utils/microCMS";
-
-export interface ListResponse<T> {
-  contents: T[];
-  totalCount: number;
-  limit: number;
-  offset: number;
-}
-
-export interface Content {
-  room: RoomContent;
-  user: UserContent;
-}
 
 const anonymousUser: UserContent = {
   id: ANONYMOUS_USER_ID,
@@ -27,14 +16,14 @@ const anonymousUser: UserContent = {
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const page = Number(searchParams.get("page") || "0");
   const limit = Number(searchParams.get("limit") || "10");
+  const offset = Number(searchParams.get("offset") || "0");
   const orders = searchParams.get("orders") || "-publishedAt"; // desc
-  const offset = limit * page;
+  const filters = searchParams.get("filters") || undefined;
 
   const rooms = await fetchContents<RoomContent>(
     "rooms",
-    { orders, limit, offset },
+    { orders, limit, offset, filters },
     { next: { revalidate: 60 } },
   );
 
@@ -45,10 +34,10 @@ export async function GET(request: NextRequest) {
   const users = await fetchContents<UserContent>(
     "users",
     { ids: userIds.join(",") },
-    { next: { revalidate: 3600 } },
+    { next: { revalidate: 60 } },
   );
 
-  const contents: Content[] = rooms.contents.map((room) => {
+  const contents: RoomCardContent[] = rooms.contents.map((room) => {
     const user = users.contents.find(
       (user) => user.id === room.created_by_user_id,
     );
@@ -58,7 +47,7 @@ export async function GET(request: NextRequest) {
     };
   });
 
-  const res: ListResponse<Content> = {
+  const res: ListResponse<RoomCardContent> = {
     contents,
     totalCount: rooms.totalCount,
     limit: rooms.limit,

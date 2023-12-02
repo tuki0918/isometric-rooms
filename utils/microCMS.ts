@@ -52,10 +52,12 @@ export const fetchContent = async <T extends MicroCMSListContent>(
 export const fetchContents = async <T extends MicroCMSListContent>(
   endpoint: string,
   queries?: MicroCMSQueries,
+  customRequestInit?: CustomRequestInit,
 ) => {
   return await client.get<MicroCMSListResponse<T>>({
     endpoint,
     queries,
+    customRequestInit,
   });
 };
 
@@ -65,6 +67,7 @@ export const fetchContents = async <T extends MicroCMSListContent>(
 export const useInfiniteContents = <T extends MicroCMSListContent>(
   endpoint: string,
   queries: InfiniteContentsQueries,
+  customRequestInit?: CustomRequestInit,
 ) => {
   return useInfiniteQuery({
     initialPageParam: 0,
@@ -72,7 +75,11 @@ export const useInfiniteContents = <T extends MicroCMSListContent>(
     queryFn: ({ pageParam }) => {
       // Calculate `offset` based on `pageParam`
       const offset = queries.limit * pageParam;
-      return fetchContents<T>(endpoint, { ...queries, offset });
+      return fetchContents<T>(
+        endpoint,
+        { ...queries, offset },
+        customRequestInit,
+      );
     },
     getNextPageParam: (lastPage, allPages) => {
       const { contents, offset, totalCount } = lastPage;

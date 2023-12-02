@@ -1,4 +1,4 @@
-import { Room } from "domains/Room";
+import { RoomCard } from "domains/RoomCard";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FC, useState } from "react";
@@ -43,14 +43,14 @@ const DownloadButton: FC<{
   );
 };
 
-export const RoomCard: FC<{
-  content: Room;
+export const GridRoomCard: FC<{
+  content: RoomCard;
 }> = ({ content }) => {
   const [hover, setHover] = useState(false);
 
-  const caption = content.isGeneratedByAi
-    ? `${content.title} / AI`
-    : `${content.title}`;
+  const caption = content.room.isGeneratedByAi
+    ? `${content.room.title} / AI`
+    : `${content.room.title}`;
   const label = (
     <div className="absolute bottom-0 left-0 z-10 bg-black bg-opacity-50 p-2 text-xs text-white">
       {caption}
@@ -63,11 +63,11 @@ export const RoomCard: FC<{
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <RoomThumbnail src={content.image.url} alt={content.title} />
+      <RoomThumbnail src={content.room.image.url} alt={content.room.title} />
       {hover && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="flex items-center justify-center">
-            <DownloadButton src={content.image.url} />
+            <DownloadButton src={content.room.image.url} />
           </div>
         </div>
       )}
@@ -77,7 +77,7 @@ export const RoomCard: FC<{
 };
 
 const GridRooms: FC<{
-  contents: Room[];
+  contents: RoomCard[];
 }> = ({ contents }) => {
   return (
     <div>
@@ -90,7 +90,7 @@ const GridRooms: FC<{
           </>
         ) : (
           contents.map((content) => (
-            <RoomCard key={content.id} content={content} />
+            <GridRoomCard key={content.room.id} content={content} />
           ))
         )}
       </div>
