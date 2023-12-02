@@ -1,4 +1,3 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
@@ -58,36 +57,5 @@ export const fetchContents = async <T extends MicroCMSListContent>(
     endpoint,
     queries,
     customRequestInit,
-  });
-};
-
-/**
- * `limit` is required for calculating `offset`.
- */
-export const useInfiniteContents = <T extends MicroCMSListContent>(
-  endpoint: string,
-  queries: InfiniteContentsQueries,
-  customRequestInit?: CustomRequestInit,
-) => {
-  return useInfiniteQuery({
-    initialPageParam: 0,
-    queryKey: [endpoint, queries],
-    queryFn: ({ pageParam }) => {
-      // Calculate `offset` based on `pageParam`
-      const offset = queries.limit * pageParam;
-      return fetchContents<T>(
-        endpoint,
-        { ...queries, offset },
-        customRequestInit,
-      );
-    },
-    getNextPageParam: (lastPage, allPages) => {
-      const { contents, offset, totalCount } = lastPage;
-      // Return `undefined` if all content has already been retrieved. However, this is not strict.
-      const lastPageCount = offset + contents.length;
-      if (lastPageCount >= totalCount) return undefined;
-      // Return the next `pageParam` if there is unretrieved content.
-      return allPages.length;
-    },
   });
 };
