@@ -20,7 +20,7 @@ const CopyURLButton = () => {
   return (
     <button
       onClick={() => void copyURLToClipboard()}
-      className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-800 shadow hover:bg-gray-100"
+      className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-800 shadow hover:bg-gray-100 md:text-base"
     >
       {isCopied ? (
         <>
