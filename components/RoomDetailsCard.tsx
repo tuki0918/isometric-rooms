@@ -25,8 +25,9 @@ const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
         </div>
         <div className="bg-white p-4 md:w-1/3 md:p-8 md:pl-0">
           <div className="mb-4">
-            <h1 className="mb-6 text-center text-2xl font-bold">DATA</h1>
-            <div className="border-t border-gray-300"></div>
+            <h1 className="text-center text-2xl font-bold tracking-widest">
+              DETAILS
+            </h1>
           </div>
           <div className="grid grid-cols-2 gap-4 text-gray-700 md:grid-cols-1 md:gap-0">
             <div className="flex flex-col">
@@ -35,27 +36,27 @@ const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
                 <div className="bg-gray-100 p-2 font-semibold">
                   {t("title")}
                 </div>
-                <div className="p-2">{room.title}</div>
+                <div className="p-2 text-right">{room.title}</div>
               </div>
               <div className="mb-2">
                 <div className="bg-gray-100 p-2 font-semibold">
                   {t("category")}
                 </div>
-                <div className="p-2">{room.category}</div>
+                <div className="p-2 text-right">{room.category}</div>
               </div>
             </div>
             <div className="flex flex-col">
               {/* Right Column */}
               <div className="mb-2">
                 <div className="bg-gray-100 p-2 font-semibold">{t("ai")}</div>
-                <div className="p-2">
+                <div className="p-2 text-right">
                   {room.isGeneratedByAi ? t("ai/yes") : t("ai/no")}
                 </div>
               </div>
               <div className="mb-2">
                 <div className="bg-gray-100 p-2 font-semibold">{t("user")}</div>
-                <div className="p-2">
-                  <div className="flex items-center space-x-2">
+                <div className="p-2 text-right">
+                  <div className="flex items-center justify-end space-x-2">
                     {user.image === undefined ? (
                       <></>
                     ) : (
@@ -103,8 +104,9 @@ export const SkeletonRoomDetailsCard: FC = () => {
         </div>
         <div className="bg-white p-4 md:w-1/3 md:p-8 md:pl-0">
           <div className="mb-4">
-            <h1 className="mb-6 text-center text-2xl font-bold">DATA</h1>
-            <div className="border-t border-gray-300"></div>
+            <h1 className="text-center text-2xl font-bold tracking-widest">
+              DETAILS
+            </h1>
           </div>
           <div className="grid grid-cols-2 gap-4 text-gray-700 md:grid-cols-1 md:gap-0">
             <div className="flex flex-col">
@@ -113,7 +115,7 @@ export const SkeletonRoomDetailsCard: FC = () => {
                 <div className="bg-gray-100 p-2 font-semibold">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
-                <div className="p-2">
+                <div className="p-2 text-right">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
               </div>
@@ -121,7 +123,7 @@ export const SkeletonRoomDetailsCard: FC = () => {
                 <div className="bg-gray-100 p-2 font-semibold">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
-                <div className="p-2">
+                <div className="p-2 text-right">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
               </div>
@@ -132,7 +134,7 @@ export const SkeletonRoomDetailsCard: FC = () => {
                 <div className="bg-gray-100 p-2 font-semibold">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
-                <div className="p-2">
+                <div className="p-2 text-right">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
               </div>
@@ -140,8 +142,8 @@ export const SkeletonRoomDetailsCard: FC = () => {
                 <div className="bg-gray-100 p-2 font-semibold">
                   <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
-                <div className="p-2">
-                  <div className="flex items-center space-x-2">
+                <div className="p-2 text-right">
+                  <div className="flex items-center justify-end space-x-2">
                     <div className="h-2.5 w-24 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                   </div>
                 </div>
