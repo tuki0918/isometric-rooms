@@ -25,7 +25,7 @@ const CopyURLButton = () => {
       {isCopied ? (
         <>
           <svg
-            className="mr-2 inline-block h-6 w-6 text-green-500"
+            className="mr-2 inline-block h-4 w-4 text-green-500 md:h-6 md:w-6"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -40,7 +40,7 @@ const CopyURLButton = () => {
       ) : (
         <>
           <svg
-            className="mr-2 inline-block h-6 w-6 text-gray-500"
+            className="mr-2 inline-block h-4 w-4 text-gray-500 md:h-6 md:w-6"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"

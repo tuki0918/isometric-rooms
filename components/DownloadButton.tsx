@@ -27,11 +27,10 @@ const DownloadButton: FC<{ imageSrc: string; fileName: string }> = ({
         className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-800 shadow hover:bg-gray-100 md:text-base"
         onClick={() => void handleDownload()}
       >
-        <div className="inline-flex items-center ">
+        <div className="inline-flex items-center">
           <svg
-            className="mr-2 h-4 w-4 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
+            className="mr-2 h-4 w-4 fill-current md:h-6 md:w-6"
+            viewBox="0 0 24 24"
           >
             <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
           </svg>
