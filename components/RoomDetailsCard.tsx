@@ -29,7 +29,7 @@ const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
               DETAILS
             </h1>
           </div>
-          <div className="grid grid-cols-2 gap-4 text-gray-700 md:grid-cols-1 md:gap-0">
+          <div className="grid grid-cols-2 gap-4 text-gray-700 md:grid-cols-1 md:gap-0 text-sm md:text-base">
             <div className="flex flex-col">
               {/* Left Column */}
               <div className="mb-2">
