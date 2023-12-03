@@ -6,6 +6,7 @@ import { FC } from "react";
 const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
   const t = useTranslations("RoomDetailsCard");
   const { room, user } = content;
+  // TODO: nothing error
   return (
     <div>
       <div className="flex flex-col md:flex-row">
@@ -13,8 +14,8 @@ const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
           <div className="flex flex-col items-center md:flex-row">
             <Image
               src={room.image.url}
-              width={room.image.width}
-              height={room.image.height}
+              width={512}
+              height={512}
               alt={room.title}
               className="w-full"
               // for Largest Contentful Paint (LCP)
