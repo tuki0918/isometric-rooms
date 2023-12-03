@@ -109,7 +109,7 @@ export const NotFoundRoom = () => {
           role="status"
           className="space-y-8 rtl:space-x-reverse md:flex md:items-center md:space-x-8 md:space-y-0"
         >
-          <div className="flex h-96 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
+          <div className="flex aspect-square w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
             <svg
               className="h-10 w-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"
@@ -142,7 +142,7 @@ const SkeletonRoom = () => {
           role="status"
           className="animate-pulse space-y-8 rtl:space-x-reverse md:flex md:items-center md:space-x-8 md:space-y-0"
         >
-          <div className="flex h-96 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
+          <div className="flex aspect-square w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
             <svg
               className="h-10 w-10 text-gray-200 dark:text-gray-600"
               aria-hidden="true"
