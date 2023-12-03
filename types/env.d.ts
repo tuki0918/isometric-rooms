@@ -13,8 +13,8 @@ declare module "process" {
         readonly NEXT_PUBLIC_SENTRY_PROJECT?: string;
         readonly NEXT_PUBLIC_SENTRY_DSN?: string;
         /** microcms */
-        readonly NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN?: string;
-        readonly NEXT_PUBLIC_MICROCMS_APIKEY?: string;
+        readonly NEXT_MICROCMS_SERVICEDOMAIN?: string;
+        readonly NEXT_MICROCMS_APIKEY?: string;
       }
     }
   }

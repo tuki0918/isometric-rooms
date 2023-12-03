@@ -27,11 +27,10 @@ export const parseToDate = (
 // Initialize the microCMS client (GET only)
 export const client = createClient({
   serviceDomain:
-    process.env.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN ||
-    "NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN is not defined",
+    process.env.NEXT_MICROCMS_SERVICEDOMAIN ||
+    "NEXT_MICROCMS_SERVICEDOMAIN is not defined",
   apiKey:
-    process.env.NEXT_PUBLIC_MICROCMS_APIKEY ||
-    "NEXT_PUBLIC_MICROCMS_APIKEY is not defined",
+    process.env.NEXT_MICROCMS_APIKEY || "NEXT_MICROCMS_APIKEY is not defined",
 });
 
 export const fetchContent = async <T extends MicroCMSListContent>(
