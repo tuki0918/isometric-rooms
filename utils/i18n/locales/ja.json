@@ -12,7 +12,7 @@
     "nothing": "これ以上読み込むものはありません"
   },
   "CategoryMenu": {
-    "title": "カテゴリー",
+    "title": "カテゴリ",
     "delimiter": "：",
     "すべて": "すべて",
     "部屋": "部屋",
@@ -23,7 +23,8 @@
   },
   "GridRooms": {
     "notFound": "Not Found",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "open": "詳細を見る"
   },
   "Information": {
     "お知らせ": "お知らせ",
@@ -39,5 +40,17 @@
     "delimiter": "：",
     "publishedAt": "公開日時",
     "revisedAt": "最終更新"
+  },
+  "DownloadButton": {
+    "download": "画像をダウンロード"
+  },
+  "RoomDetailsCard": {
+    "id": "ID",
+    "title": "タイトル",
+    "category": "カテゴリ",
+    "ai": "AI生成",
+    "ai/yes": "はい",
+    "ai/no": "いいえ",
+    "user": "投稿者"
   }
 }
