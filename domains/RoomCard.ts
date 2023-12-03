@@ -6,7 +6,7 @@ export class RoomCard {
   #room: Room;
   #user: User;
 
-  private constructor(data: { room: Room; user: User }) {
+  constructor(data: { room: Room; user: User }) {
     this.#room = data.room;
     this.#user = data.user;
   }
