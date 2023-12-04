@@ -1,6 +1,5 @@
 import { ANONYMOUS_USER_ID } from "app/metadata";
 import CopyURLButton from "components/CopyURLButton";
-import DownloadButton from "components/DownloadButton";
 import RoomDetailsCard from "components/RoomDetailsCard";
 import { Room } from "domains/Room";
 import { RoomCard } from "domains/RoomCard";
@@ -80,8 +79,7 @@ export default async function Page({ params }: Props) {
           <RoomDetailsCard content={content} />
         </div>
 
-        <div className="my-8 flex items-center justify-evenly">
-          <DownloadButton imageSrc={room.image.url} fileName={room.title} />
+        <div className="my-8 flex flex-row items-center justify-center">
           <CopyURLButton />
         </div>
       </div>
