@@ -1,6 +1,3 @@
-import dayjs from "dayjs";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
 import type {
   CustomRequestInit,
   MicroCMSDate,
@@ -9,19 +6,17 @@ import type {
   MicroCMSQueries,
 } from "microcms-js-sdk";
 import { createClient } from "microcms-js-sdk";
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
+import { parseToUTCDate } from "utils/date";
 
 export type InfiniteContentsQueries = MicroCMSQueries & { limit: number };
 
 export const parseToDate = (
   content: Pick<MicroCMSDate, "publishedAt" | "revisedAt">,
   key: "publishedAt" | "revisedAt",
-) => {
+): Date | undefined => {
   const date = content[key];
   if (!date) return undefined;
-  return dayjs.utc(date).toDate();
+  return parseToUTCDate(date);
 };
 
 // Initialize the microCMS client (GET only)
