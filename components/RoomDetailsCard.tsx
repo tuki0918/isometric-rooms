@@ -14,8 +14,8 @@ const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
           <div className="flex flex-col items-center md:flex-row">
             <Image
               src={room.image.url}
-              width={512}
-              height={512}
+              width={room.image.width}
+              height={room.image.height}
               alt={room.title}
               className="w-full"
               // for Largest Contentful Paint (LCP)
