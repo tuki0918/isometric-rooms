@@ -40,7 +40,7 @@ const Top: FC = () => {
     isFetchingNextPage,
     status,
   } = useInfiniteRooms({
-    limit: 18,
+    limit: 9,
     orders: "-publishedAt", // desc
     filters,
   });

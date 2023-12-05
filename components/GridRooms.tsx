@@ -173,9 +173,6 @@ export const GridSkeletonRooms = () => {
         <SkeletonRoom />
         <SkeletonRoom />
         <SkeletonRoom />
-        <SkeletonRoom />
-        <SkeletonRoom />
-        <SkeletonRoom />
       </div>
     </div>
   );
