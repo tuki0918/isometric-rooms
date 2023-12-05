@@ -1,11 +1,12 @@
 import InformationBadges from "components/InformationBadges";
 import { Information } from "domains/Information";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FC } from "react";
-import { formatJSTDate } from "utils/date";
+import { formatJSTDate, formatJSTTimeAgo } from "utils/date";
 
 const InformationCard: FC<{ content: Information }> = ({ content }) => {
   const t = useTranslations("InformationCard");
+  const locale = useLocale();
   return (
     <div>
       <div className="rounded-md bg-white p-4 shadow md:p-8">
@@ -27,7 +28,7 @@ const InformationCard: FC<{ content: Information }> = ({ content }) => {
               {t("delimiter")}
               {content.revisedAt === undefined
                 ? ""
-                : formatJSTDate(content.revisedAt)}
+                : formatJSTTimeAgo(content.revisedAt, locale)}
             </div>
           </div>
         </div>
