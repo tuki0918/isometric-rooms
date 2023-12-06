@@ -6,6 +6,7 @@ import { RoomCard } from "domains/RoomCard";
 import { User } from "domains/User";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import type { RoomContent, UserContent } from "types/microcms";
 import { Link } from "utils/i18n/navigation";
 import { fetchContent } from "utils/microCMS";
@@ -44,11 +45,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+async function getRoomCard(id: string) {
+  try {
+    const room = await getRoom(id);
+    const user = await getUser(room.createdByUserId ?? ANONYMOUS_USER_ID);
+    return new RoomCard({ room, user });
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
+}
+
 export default async function Page({ params }: Props) {
   const id = params.id;
-  const room = await getRoom(id);
-  const user = await getUser(room.createdByUserId ?? ANONYMOUS_USER_ID);
-  const content = new RoomCard({ room, user });
+  const content = await getRoomCard(id);
+  if (!content) return notFound();
   const t = await getTranslations("Common");
   return (
     <div className="container mx-auto">

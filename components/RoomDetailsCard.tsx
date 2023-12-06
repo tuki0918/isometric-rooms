@@ -6,7 +6,6 @@ import { FC } from "react";
 const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
   const t = useTranslations("RoomDetailsCard");
   const { room, user } = content;
-  // TODO: nothing error
   return (
     <div>
       <div className="flex flex-col md:flex-row">
