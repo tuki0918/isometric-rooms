@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
   const content = await getContent(id);
   const t = await getTranslations("Common");
 
-  if (!content) return notFound();
+  if (!content) notFound();
 
   return (
     <div className="container mx-auto">

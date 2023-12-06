@@ -59,7 +59,7 @@ async function getRoomCard(id: string) {
 export default async function Page({ params }: Props) {
   const id = params.id;
   const content = await getRoomCard(id);
-  if (!content) return notFound();
+  if (!content) notFound();
   const t = await getTranslations("Common");
   return (
     <div className="container mx-auto">
