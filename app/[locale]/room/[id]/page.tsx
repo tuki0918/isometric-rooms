@@ -39,10 +39,15 @@ async function getUser(id: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.id;
-  const content = await getRoom(id);
-  return {
-    title: content.title,
-  };
+  try {
+    const content = await getRoom(id);
+    return {
+      title: content.title,
+    };
+  } catch (error) {
+    console.error(error);
+    notFound();
+  }
 }
 
 async function getRoomCard(id: string) {

@@ -25,10 +25,15 @@ async function getContent(id: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.id;
-  const content = await getContent(id);
-  return {
-    title: content.title,
-  };
+  try {
+    const content = await getContent(id);
+    return {
+      title: content.title,
+    };
+  } catch (error) {
+    console.error(error);
+    notFound();
+  }
 }
 
 export default async function Page({ params }: Props) {
