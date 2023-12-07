@@ -8,8 +8,8 @@ const RoomDetailsCard: FC<{ content: RoomCard }> = ({ content }) => {
   const { room, user } = content;
   return (
     <div>
-      <div className="flex flex-col md:flex-row">
-        <div className="bg-white p-4 shadow md:w-2/3 md:p-8">
+      <div className="flex flex-col shadow md:flex-row">
+        <div className="bg-white p-4 md:w-2/3 md:p-8">
           <div className="flex flex-col items-center md:flex-row">
             <Image
               src={room.image.url}
