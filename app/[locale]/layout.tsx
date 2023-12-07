@@ -1,8 +1,7 @@
 import "app/globals.css";
-import { SITE_DESCRIPTION, SITE_TITLE } from "app/metadata";
+import { SITE_TITLE } from "app/metadata";
 import LayoutFooter from "components/LayoutFooter";
 import LayoutHeader from "components/LayoutHeader";
-import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -11,15 +10,7 @@ import { Locale, locales } from "utils/i18n/i18n-config";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: {
-    default: SITE_TITLE,
-    template: `%s - ${SITE_TITLE}`,
-  },
-  description: SITE_DESCRIPTION,
-};
-
-export default function RootLayout({
+export default function LocalLayout({
   children,
   params: { locale },
 }: {
