@@ -1,6 +1,7 @@
 {
   "Common": {
-    "nav/back": "Go Back"
+    "nav/back": "Go Back",
+    "btn/close": "Close"
   },
   "Page/Information": {
     "title": "Information",

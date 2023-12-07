@@ -1,6 +1,7 @@
 {
   "Common": {
-    "nav/back": "戻る"
+    "nav/back": "戻る",
+    "btn/close": "閉じる"
   },
   "Page/Information": {
     "title": "Information",
