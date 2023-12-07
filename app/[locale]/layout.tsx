@@ -1,8 +1,7 @@
 import "app/globals.css";
-import { SITE_DESCRIPTION, SITE_TITLE } from "app/metadata";
+import { SITE_TITLE } from "app/metadata";
 import LayoutFooter from "components/LayoutFooter";
 import LayoutHeader from "components/LayoutHeader";
-import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -11,19 +10,13 @@ import { Locale, locales } from "utils/i18n/i18n-config";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: {
-    default: SITE_TITLE,
-    template: `%s - ${SITE_TITLE}`,
-  },
-  description: SITE_DESCRIPTION,
-};
-
-export default function RootLayout({
+export default function LocalLayout({
   children,
+  modal,
   params: { locale },
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
   params: { locale: Locale };
 }) {
   // Validate that the incoming `locale` parameter is valid
@@ -37,7 +30,10 @@ export default function RootLayout({
           <header className="fixed top-0 z-50 w-full bg-white shadow-md">
             <LayoutHeader title={SITE_TITLE} />
           </header>
-          <main className="pt-16">{children}</main>
+          <main className="pt-16">
+            {modal}
+            {children}
+          </main>
           <footer>
             <LayoutFooter />
           </footer>
