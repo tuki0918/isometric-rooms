@@ -24,4 +24,11 @@ export class RoomCard {
   get user() {
     return this.#user;
   }
+
+  toObject(): { room: RoomContent; user: UserContent } {
+    return {
+      room: this.room.toObject(),
+      user: this.user.toObject(),
+    };
+  }
 }

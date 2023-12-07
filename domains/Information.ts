@@ -15,6 +15,8 @@ const InformationSchema = z.object({
   summary: z.string().optional(),
   is_critical: z.boolean(),
   category: z.array(InformationCategorySchema),
+  createdAt: z.string(),
+  updatedAt: z.string(),
   publishedAt: z.string().optional(),
   revisedAt: z.string().optional(),
 });
@@ -28,18 +30,20 @@ export class Information {
   #summary: string | undefined;
   #isCritical: boolean;
   #category: InformationCategoryType[];
+  #createdAt: Date;
+  #updatedAt: Date;
   #publishedAt: Date | undefined;
   #revisedAt: Date | undefined;
 
-  private constructor(
-    data: Omit<InformationContent, "createdAt" | "updatedAt">,
-  ) {
+  private constructor(data: InformationContent) {
     this.#id = data.id;
     this.#title = data.title;
     this.#content = data.content;
     this.#summary = data.summary;
     this.#isCritical = data.is_critical;
     this.#category = data.category;
+    this.#createdAt = parseToDate(data, "createdAt");
+    this.#updatedAt = parseToDate(data, "updatedAt");
     this.#publishedAt = parseToDate(data, "publishedAt");
     this.#revisedAt = parseToDate(data, "revisedAt");
   }
@@ -79,5 +83,20 @@ export class Information {
 
   get revisedAt() {
     return this.#revisedAt;
+  }
+
+  toObject(): InformationContent {
+    return {
+      id: this.#id,
+      title: this.#title,
+      content: this.#content,
+      summary: this.#summary,
+      is_critical: this.#isCritical,
+      category: this.#category,
+      createdAt: this.#createdAt.toISOString(),
+      updatedAt: this.#updatedAt.toISOString(),
+      publishedAt: this.#publishedAt?.toISOString(),
+      revisedAt: this.#revisedAt?.toISOString(),
+    };
   }
 }

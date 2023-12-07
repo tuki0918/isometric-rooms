@@ -10,12 +10,12 @@ import { parseToUTCDate } from "utils/date";
 
 export type InfiniteContentsQueries = MicroCMSQueries & { limit: number };
 
-export const parseToDate = (
-  content: Pick<MicroCMSDate, "publishedAt" | "revisedAt">,
-  key: "publishedAt" | "revisedAt",
-): Date | undefined => {
+export const parseToDate = <K extends keyof MicroCMSDate>(
+  content: MicroCMSDate,
+  key: K,
+): K extends "createdAt" | "updatedAt" ? Date : Date | undefined => {
   const date = content[key];
-  if (!date) return undefined;
+  if (date === undefined) return undefined as unknown as Date;
   return parseToUTCDate(date);
 };
 
