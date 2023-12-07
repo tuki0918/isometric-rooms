@@ -1,9 +1,27 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { ListResponse } from "types/api";
 export type InfiniteContentsQueries = {
   limit: number;
   orders?: string;
   filters?: string;
+};
+
+export const fetchContent = async <T>(endpoint: string, id: string) => {
+  const params = new URLSearchParams();
+  params.append("id", id);
+  const res = await fetch(`/api/${endpoint}?${params.toString()}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json() as Promise<T>;
+};
+
+export const useFetchContent = <T>(endpoint: string, id: string) => {
+  return useQuery<T, Error>({
+    queryKey: ["content", endpoint, id],
+    queryFn: () => fetchContent<T>(endpoint, id),
+  });
 };
 
 export const fetchContents = async <T>(
