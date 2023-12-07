@@ -28,7 +28,7 @@ export const client = createClient({
     process.env.NEXT_MICROCMS_APIKEY || "NEXT_MICROCMS_APIKEY is not defined",
 });
 
-export const fetchContent = async <T extends MicroCMSListContent>(
+export const fetchContent = async <T>(
   endpoint: string,
   contentId: string,
   queries?: MicroCMSQueries,
