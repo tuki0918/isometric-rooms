@@ -10,12 +10,12 @@ import { parseToUTCDate } from "utils/date";
 
 export type InfiniteContentsQueries = MicroCMSQueries & { limit: number };
 
-export const parseToDate = (
-  content: Pick<MicroCMSDate, "publishedAt" | "revisedAt">,
-  key: "publishedAt" | "revisedAt",
-): Date | undefined => {
+export const parseToDate = <K extends keyof MicroCMSDate>(
+  content: MicroCMSDate,
+  key: K,
+): K extends "createdAt" | "updatedAt" ? Date : Date | undefined => {
   const date = content[key];
-  if (!date) return undefined;
+  if (date === undefined) return undefined as unknown as Date;
   return parseToUTCDate(date);
 };
 
@@ -28,7 +28,7 @@ export const client = createClient({
     process.env.NEXT_MICROCMS_APIKEY || "NEXT_MICROCMS_APIKEY is not defined",
 });
 
-export const fetchContent = async <T extends MicroCMSListContent>(
+export const fetchContent = async <T>(
   endpoint: string,
   contentId: string,
   queries?: MicroCMSQueries,
