@@ -1,7 +1,7 @@
 import "app/globals.css";
 import { SITE_TITLE } from "app/metadata";
-import LayoutFooter from "components/LayoutFooter";
-import LayoutHeader from "components/LayoutHeader";
+import LayoutFooter from "components/Layout/Footer";
+import LayoutHeader from "components/Layout/Header";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
