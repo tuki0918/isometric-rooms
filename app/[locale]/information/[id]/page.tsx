@@ -52,15 +52,13 @@ export default async function Page({ params }: Props) {
             href="/information"
           >
             <svg
+              className="ms-2 h-4 w-4"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="h-5 w-5"
+              viewBox="0 0 24 24"
             >
               <path
-                fillRule="evenodd"
-                d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
-                clipRule="evenodd"
+                fill="currentColor"
+                d="M10 21.308L.692 12L10 2.692l1.063 1.064L2.82 12l8.244 8.244z"
               />
             </svg>
 

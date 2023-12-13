@@ -15,21 +15,19 @@ const LoadMoreButton: FC<{
         disabled={isLoading || !hasMore}
         className="bg-secondary-50 flex items-center rounded-full border border-gray-400 px-3 py-2 text-center text-sm font-medium text-gray-900 hover:bg-gray-100"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="mr-1 h-4 w-4"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-            clipRule="evenodd"
-          />
-        </svg>
-        <span className="mr-1">
+        <span className="ms-1">
           {isLoading ? t("isLoading") : hasMore ? t("hasMore") : t("nothing")}
         </span>
+        <svg
+          className="ms-1 h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M12 14.975q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062"
+          />
+        </svg>
       </button>
     </div>
   );

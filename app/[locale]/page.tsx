@@ -44,18 +44,13 @@ export default function Home() {
             >
               See Information
               <svg
-                className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                aria-hidden="true"
+                className="ms-2 h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
+                viewBox="0 0 24 24"
               >
                 <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                  fill="currentColor"
+                  d="M16.175 13H5q-.425 0-.712-.288T4 12q0-.425.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375q0 .2-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
                 />
               </svg>
             </Link>
@@ -67,18 +62,13 @@ export default function Home() {
             >
               See Image Generation GPT
               <svg
-                className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                aria-hidden="true"
+                className="ms-2 h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
+                viewBox="0 0 24 24"
               >
                 <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                  fill="currentColor"
+                  d="M16.175 13H5q-.425 0-.712-.288T4 12q0-.425.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375q0 .2-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
                 />
               </svg>
             </Link>
