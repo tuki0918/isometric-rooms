@@ -25,7 +25,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
+# env files
+.env
 .env*.local
 
 # vercel
@@ -41,3 +42,11 @@ coverage
 
 # Sentry Config File
 .sentryclirc
+
+# Storybook
+build-storybook.log
+
+# Chromatic
+chromatic.log
+chromatic-build-*.xml
+chromatic-diagnostics.json
