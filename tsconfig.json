@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "sentry-config.js"
+    "sentry-config.js",
+    "jest-setup.ts"
   ],
   "exclude": ["node_modules"]
 }
