@@ -1,3 +1,4 @@
+import { GoogleTagManager } from "@next/third-parties/google";
 import "app/globals.css";
 import { SITE_TITLE } from "app/metadata";
 import LayoutFooter from "components/Layout/Footer";
@@ -21,6 +22,10 @@ export default function LocalLayout({
   if (!locales.includes(locale)) notFound();
   const messages = loadLocaleMessages(locale);
 
+  const GA_MEASUREMENT_ID =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+    "NEXT_PUBLIC_GA_MEASUREMENT_ID is not defined";
+
   return (
     <html lang={locale}>
       <body className={inter.className}>
@@ -34,6 +39,9 @@ export default function LocalLayout({
           </footer>
         </NextIntlClientProvider>
       </body>
+      {process.env.NEXT_PUBLIC_ENABLE_LOG === "ON" && (
+        <GoogleTagManager gtmId={GA_MEASUREMENT_ID} />
+      )}
     </html>
   );
 }

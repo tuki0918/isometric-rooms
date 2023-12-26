@@ -1,31 +1,9 @@
 import Top from "components/Top";
-import Script from "next/script";
 import { Link } from "utils/i18n/navigation";
 
 export default function Home() {
-  const GA_MEASUREMENT_ID =
-    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
-    "NEXT_PUBLIC_GA_MEASUREMENT_ID is not defined";
   return (
     <div>
-      {/* Google Analytics */}
-      {process.env.NEXT_PUBLIC_ENABLE_LOG === "ON" && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          />
-          <Script id="google-analytics">
-            {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', '${GA_MEASUREMENT_ID}');
-        `}
-          </Script>
-        </>
-      )}
-
       {/* TODO: 説明とi18n対応 */}
       <div className="bg-gray-900">
         <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:py-16">
